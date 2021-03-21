@@ -18,3 +18,5 @@
 
 - staging -> pr this branch for everything else
 - prod -> production branch
+- james -> james dev branch
+- dom -> dom dev branch
