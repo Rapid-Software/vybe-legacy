@@ -2,6 +2,9 @@
 	  <img src="https://cdn.discordapp.com/attachments/670502278217859123/821088026963869726/bruh4.png" alt="Vybe Logo" />
 </p>
 <p align="center">
+  <h1>Vybe</h1>
+</p>
+<p align="center">
   <strong>Tinder for Music! 🎵</strong>
 </p>
 ## Structure
