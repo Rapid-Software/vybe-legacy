@@ -7,6 +7,7 @@
 <p align="center">
   <strong>Tinder for Music! 🎵</strong>
 </p>
+
 ## Structure
 
 | Codebase             |      Description      |
