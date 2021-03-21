@@ -13,3 +13,8 @@
 | :------------------- | :-------------------: |
 | [kastle](kastle)     |      Elixir API       |
 | [shalam](shalam)     |     React Native      |
+
+## Branches
+
+- staging -> pr this branch for everything else
+- prod -> production branch
