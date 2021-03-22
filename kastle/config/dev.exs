@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :kastle, Kastle.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "gang",
   database: "kastle_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

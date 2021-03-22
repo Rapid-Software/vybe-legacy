@@ -1,9 +1,32 @@
 defmodule Kastle do
-  @moduledoc """
-  Kastle keeps the contexts that define your domain
-  and business logic.
+  use Application
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  def start(_type, _args) do
+    import Supervisor.Spec, warn: false
+    children = [
+      Plug.Cowboy.child_spec(
+        scheme: :http,
+        plug: Handler,
+        options: [
+          port: String.to_integer("4000"),
+          dispatch: dispatch(),
+          protocol_options: [idle_timeout: :infinity]
+        ]
+      )
+    ]
+    opts = [strategy: :one_for_one, name: Kastle.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+
+  defp dispatch do
+    [
+      {:_,
+        [
+          {"/socket", Handler.SocketHandler, []},
+          {:_, Plug.Cowboy.Handler, {Handler, []}}
+        ]
+      }
+    ]
+  end
+
 end
