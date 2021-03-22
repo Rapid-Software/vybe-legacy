@@ -14,6 +14,7 @@
 | [kastle](kastle)     |      Elixir API       |
 | [shalam](shalam)     |     React Native      |
 | [kringle](kringle)   |       Vybe Site       |
+| [juust](juust)       |        Assets         |
 
 ## Branches
 
