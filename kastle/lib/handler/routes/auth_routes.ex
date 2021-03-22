@@ -1,18 +1,10 @@
-defmodule Handler do
+defmodule Handler.Routes.Auth do
     import Plug.Conn
 
     use Plug.Router
 
-    # Alias's
-    alias Handler.Routes.Test
-    alias Handler.Routes.Auth
-
     plug(:match)
     plug(:dispatch)
-
-    # forwards
-    forward("/test", to: Test)
-    forward("/auth", to: Auth)
 
     get _ do
         conn
