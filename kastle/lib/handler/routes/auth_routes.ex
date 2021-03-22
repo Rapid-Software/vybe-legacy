@@ -7,7 +7,7 @@ defmodule Handler.Routes.Auth do
     plug(:dispatch)
 
     # Spotify
-    post "spotify" do
+    post "/spotify" do
         conn
         |> send_resp(200, "bruh")
     end
