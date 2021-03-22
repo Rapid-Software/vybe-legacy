@@ -6,6 +6,16 @@ defmodule Handler.Routes.Auth do
     plug(:match)
     plug(:dispatch)
 
+    # Spotify
+    post "/spotify" do
+        conn
+        |> send_resp(200, "bruh")
+    end
+
+    # Soundcloud
+
+    # Apple Music
+
     get _ do
         conn
         |> send_resp(404, "404")
