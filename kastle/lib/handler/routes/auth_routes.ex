@@ -1,4 +1,4 @@
-defmodule Handler.Routes.Test do
+defmodule Handler.Routes.Auth do
     import Plug.Conn
 
     use Plug.Router
