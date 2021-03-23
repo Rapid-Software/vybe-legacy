@@ -6,7 +6,7 @@ interface NavBarProps {
 
 export const NavBar: React.FC<NavBarProps> = ({ curPage }) => {
     return (
-        <div className={'relative pt-6 px-4 sm:px-6 lg:px-8 bg-transparent'}>
+        <div className={'relative pt-6 px-4 sm:px-6 lg:px-8 bg-gray-300'}>
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-center">
               <div className="flex items-center justify-center text-2xl text-true-gray-800">
