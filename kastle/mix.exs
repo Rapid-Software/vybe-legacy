@@ -20,7 +20,7 @@ defmodule Kastle.MixProject do
   def application do
     [
       mod: {Kastle, []},
-      applications: [:spotify_ex, :phoenix, :phoenix_ecto, :plug_cowboy, :ecto_sql],
+      applications: [:spotify_ex, :phoenix, :phoenix_ecto, :plug_cowboy, :ecto_sql, :gen_registry],
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -36,6 +36,7 @@ defmodule Kastle.MixProject do
     [
       {:phoenix, "~> 1.5.8"},
       {:phoenix_ecto, "~> 4.1"},
+      {:gen_registry, "~> 1.0"},
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
