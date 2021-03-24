@@ -15,6 +15,7 @@
 | [shalam](shalam)     |     React Native      |
 | [kringle](kringle)   |       Vybe Site       |
 | [juust](juust)       |        Assets         |
+| [newton](newton)     |      Figma Stuff      |
 
 ## Branches
 
