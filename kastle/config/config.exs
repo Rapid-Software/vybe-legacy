@@ -10,6 +10,14 @@ use Mix.Config
 config :kastle,
   ecto_repos: [Kastle.Repo]
 
+# Spotify API
+config :spotify_ex, 
+  client_id: System.get_env("SPOTIFY_CLIENT_ID"),
+  secret_key: System.get_env("SPOTIFY_SECRET"),
+  user_id: System.get_env("SPOTIFY_USER_ID"),
+  scopes: ["streaming"],
+  callback_url: System.get_env("SPOTIFY_CALLBACK_URL")
+
 # Configures the endpoint
 config :kastle, KastleWeb.Endpoint,
   url: [host: "localhost"],
