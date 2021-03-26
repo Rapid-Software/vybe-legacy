@@ -7,8 +7,6 @@ export type MainStackParams = {
 
 const Stack = createStackNavigator<MainStackParams>();
 
-
-
 export const MainNav = () => {
     return (
         // WebSocket Provider Here
