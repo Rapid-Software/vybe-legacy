@@ -15,7 +15,7 @@ defmodule Sessions.UserSession do
 
     def start_link(%State{
         user_id: user_id,
-        account_type: account_type
+        account_type: account_type,
         token: token
     }) do
         GenServer.start_link(
