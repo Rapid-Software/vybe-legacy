@@ -4,22 +4,26 @@ defmodule Sessions.UserSession do
     defmodule State do
         @type t :: %__MODULE__{
             user_id: String.t(),
-            spotify_token: String.t()
+            account_type: String.t(),
+            token: String.t()
         }
 
         defstruct user_id: nil,
-                  spotify_token: nil
+                  account_type: nil,
+                  token: nil
     end
 
     def start_link(%State{
         user_id: user_id,
-        spotify_token: spotify_token
+        account_type: account_type
+        token: token
     }) do
         GenServer.start_link(
             __MODULE__,
             %State{
                 user_id: user_id,
-                spotify_token: spotify_token
+                account_type: account_type,
+                token: token
             },
             name: :"#{user_id}:user_session"
         )
