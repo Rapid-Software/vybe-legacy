@@ -1,6 +1,9 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 
+// Pages
+import { TestPage } from "../pages/TestPage";
+
 export type MainStackParams = {
 
 };
@@ -14,6 +17,9 @@ export const MainNav = () => {
         screenOptions={{
             headerShown: false
         }}>
+
+        <Stack.Screen name={"Test" as never} component={TestPage} />
+
         </Stack.Navigator>
     )
 }
