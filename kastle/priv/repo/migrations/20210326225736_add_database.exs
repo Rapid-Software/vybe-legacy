@@ -13,7 +13,8 @@ defmodule Data.Repo.Migrations.AddDatabase do
     create table(:songs) do
       add :sid, :string
       add :type, :string
-      add :name, :artist
+      add :name, :string
+      add :artist, :string
     end
 
     create table(:liked_songs) do

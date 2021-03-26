@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :kastle, Kastle.Repo,
+config :kastle, Data.Repo,
   username: "postgres",
   password: "gang",
   database: "kastle_dev",
