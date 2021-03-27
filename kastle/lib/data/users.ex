@@ -4,4 +4,6 @@ defmodule Data.Users do
 
     # Mutation Functions
     defdelegate t, to: Data.Mutations.Users
+
+    # Query Functions
 end
