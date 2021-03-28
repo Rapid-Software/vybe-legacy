@@ -4,6 +4,10 @@ defmodule Data.Mutations.Users do
 
     end
 
+    def create_spotify_user(id, at, rt) do
+
+    end
+
     def add_liked_song(id, sid) do
 
     end
