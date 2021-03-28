@@ -8,7 +8,7 @@
 use Mix.Config
 
 config :kastle,
-  ecto_repos: [Kastle.Repo]
+  ecto_repos: [Data.Repo]
 
 # Spotify API
 config :spotify_ex, 
