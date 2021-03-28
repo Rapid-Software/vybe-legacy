@@ -6,6 +6,7 @@ defmodule Data.Schemas.Song do
     schema "songs" do
         field :sid, :string
         field :type, :string
+        field :pid, :string
         field :name, :string
         field :artist, :string
     end
