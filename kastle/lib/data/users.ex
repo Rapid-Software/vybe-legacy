@@ -21,5 +21,7 @@ defmodule Data.Users do
 
     defdelegate spotify_find_or_create(spotify_id), to: Data.Mutations.Users
 
+    defdelegate create_spotify_user(id, at, rt), to: Data.Mutations.Users
+
     # Query Functions
 end
