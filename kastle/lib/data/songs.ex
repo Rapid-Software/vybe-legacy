@@ -8,6 +8,6 @@ defmodule Data.Songs do
     # Mutation Functions
     defdelegate add_song(type, id), to: Data.Mutations.Songs
 
-    defdelegate find_or_create(type, id), to: Data.Mutations.Songs
+    defdelegate find_or_create(type, id), to: Data.Mutations.Songs #if,else this.add_song
     # Query Functions
 end
