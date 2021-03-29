@@ -36,8 +36,7 @@ defmodule Data.Mutations.Users do
     end
 
     def delete(id) do
-        %User{uid: id}
-        |> Repo.delete()
+        %User{uid: id} |> Repo.delete()
     end
 
 end
