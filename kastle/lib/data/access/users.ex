@@ -6,7 +6,13 @@ defmodule Data.Access.Users do
   alias Data.Repo
 
   def find_by_uid(id) do
-
+    t =
+      from(u in User,
+      where:
+      u.uid == ^id,
+      limit: 1
+      )
+      |> Repo.one()
   end
 
   def find_by_spotify_id(spotify_id) do
