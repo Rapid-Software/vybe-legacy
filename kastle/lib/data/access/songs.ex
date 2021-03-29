@@ -1,6 +1,6 @@
 defmodule Data.Access.Songs do
 
-  def find_by_uid(sid) do
+  def find_by_sid(sid) do
 
   end
 
