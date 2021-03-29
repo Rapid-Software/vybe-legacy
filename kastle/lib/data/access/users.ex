@@ -6,34 +6,34 @@ defmodule Data.Access.Users do
   alias Data.Repo
 
   def find_by_uid(id) do
-    t =
+    {:ok, t =
       from(u in User,
       where:
       u.uid == ^id,
       limit: 1
       )
-      |> Repo.one()
+      |> Repo.one()}
   end
 
   def find_by_spotify_id(spotify_id) do
-    t =
+    {:ok, t =
       from(u in User,
       where:
       u.spotify_id == ^spotify_id,
       limit: 1
       )
-      |> Repo.one()
+      |> Repo.one()}
   end
 
   def get_all_songs(id) do
-    l = id |> get_liked_songs()
-    r = id |> get_rejected_songs()
+    t = id |> find_by_uid()
 
-    l ++ r
+    {:ok, t.liked_songs ++ t.rejected_songs}
   end
 
   def get_liked_songs(id) do
-
+    t = id |> find_by_uid()
+    {:ok, t.liked_songs}
   end
 
   def get_rejected_songs(id) do
