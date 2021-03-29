@@ -41,20 +41,22 @@ defmodule Handler.SocketHandler do
 
         def websocket_handle({:text, json}, state) do
             with {:ok, json} <- Poison.decode(json) do
-                _ ->
-                    if not is_nil(state.user_id) do
-                        try do
-                            case json do
-                                %{"op" => op, "d" => d} ->
-                                    handler(op, d, state)
-                            end
+                if not is_nil(state.user_id) do
+                    try do
+                        case json do
+                            %{"op" => op, "d" => d} ->
+                                handler(op, d, state)
                         end
+                    rescue
+                        e ->
+                            IO.inspect(e)
                     end
+                end
             end
         end
 
         # Handlers
-        def handler("test", %{"test_data" => data}, state) do
+        def handler("test", %{"test_data" => _data}, state) do
             {:ok, state}
         end
 
