@@ -40,7 +40,9 @@ defmodule Handler.SocketHandler do
         end
 
         def websocket_handle({:text, json}, state) do
+            with {:ok, json} -< Poison.decode(json) do
 
+            end
         end
 
 end
