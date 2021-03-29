@@ -1,11 +1,18 @@
 defmodule Data.Mutations.Users do
 
+    import Ecto.Query
+
     alias Data.Schemas.User
     alias Data.Repo
 
     def spotify_find_or_create(id, at, rt) do
-        t = User
-            |> Repo.get_by([spotify_id: id])
+        t =
+            from(u in User,
+            where:
+            u.spotify_id == ^id,
+            limit: 1
+            )
+            |> Repo.one()
     end
 
     def create_spotify_user(id, at, rt) do
