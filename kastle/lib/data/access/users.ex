@@ -20,7 +20,10 @@ defmodule Data.Access.Users do
   end
 
   def get_all_songs(id) do
+    l = id |> get_liked_songs()
+    r = id |> get_rejected_songs()
 
+    l ++ r
   end
 
   def get_liked_songs(id) do
