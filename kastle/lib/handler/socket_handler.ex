@@ -41,6 +41,10 @@ defmodule Handler.SocketHandler do
 
         def websocket_handle({:text, json}, state) do
             with {:ok, json} <- Poison.decode(json) do
+
+
+
+                # send to handler
                 if not is_nil(state.user_id) do
                     try do
                         case json do
@@ -51,6 +55,8 @@ defmodule Handler.SocketHandler do
                         e ->
                             IO.inspect(e)
                     end
+                else
+                    IO.puts("bruhj")
                 end
             end
         end
