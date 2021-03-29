@@ -1,7 +1,7 @@
 defmodule Data.Songs do
 
     # Access Functions
-    defdelegate find_by_uid(sid), to: Data.Access.Songs
+    defdelegate find_by_sid(sid), to: Data.Access.Songs
     defdelegate find_by_pid(type, pid), to: Data.Access.Songs
 
     defdelegate find_by_type(type), to: Data.Access.Songs #Type: Spotify/Sc/Apple
