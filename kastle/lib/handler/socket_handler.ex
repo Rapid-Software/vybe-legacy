@@ -56,7 +56,7 @@ defmodule Handler.SocketHandler do
                             IO.inspect(e)
                     end
                 else
-                    IO.puts("bruhj")
+                    # yo dis dude aint even logged in bruh! DEAD ASS
                 end
             end
         end
