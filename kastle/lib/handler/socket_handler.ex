@@ -56,7 +56,7 @@ defmodule Handler.SocketHandler do
                             IO.inspect(e)
                     end
                 else
-                    # yo dis dude aint even logged in bruh! DEAD ASS
+                    # yo dis dude aint even logged in bruh!
                 end
             end
         end
