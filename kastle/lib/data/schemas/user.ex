@@ -12,7 +12,7 @@ defmodule Data.Schemas.User do
         many_to_many :rejectedsongs, Data.Schemas.Song, join_through: "rejected_songs"
     end
 
-    def edit_changeset_w(attr, fields) do
+    def edit_changeset_w(user, data, fields) do
 
     end
 
