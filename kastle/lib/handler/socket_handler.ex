@@ -41,7 +41,13 @@ defmodule Handler.SocketHandler do
 
         def websocket_handle({:text, json}, state) do
             with {:ok, json} <- Poison.decode(json) do
-
+                case json["op"] do
+                    "auth" ->
+                        case json["d"] do
+                            %{"token" => token} -> # token sent to them after login with service // add spotify_id => etc...
+                                # Login proc here
+                        end
+                end
 
 
                 # send to handler
