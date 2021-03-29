@@ -2,6 +2,7 @@ defmodule Data.Users do
 
     # Access Functions
     defdelegate find_by_uid(id), to: Data.Access.Users
+    defdelegate find_by_spotify_id(spotify_id), to: Data.Access.Users
 
     defdelegate get_all_songs(id), to: Data.Access.Users
     defdelegate get_liked_songs(id), to: Data.Access.Users
