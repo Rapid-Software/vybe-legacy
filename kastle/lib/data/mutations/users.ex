@@ -1,6 +1,6 @@
 defmodule Data.Mutations.Users do
 
-    alias Data.User
+    alias Data.Schemas.User
     alias Data.Repo
 
     def spotify_find_or_create(id, at, rt) do
@@ -29,8 +29,8 @@ defmodule Data.Mutations.Users do
     end
 
     def delete(id) do
-        #%User{uid: id}
-        #|> Repo.delete()
+        %User{uid: id}
+        |> Repo.delete()
     end
 
 end
