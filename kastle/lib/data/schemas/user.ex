@@ -10,6 +10,10 @@ defmodule Data.Schemas.User do
         field :spotify_rt, :string
         many_to_many :likedsongs, Data.Schemas.Song, join_through: "liked_songs"
         many_to_many :rejectedsongs, Data.Schemas.Song, join_through: "rejected_songs"
-    end    
+    end
+
+    def edit_changeset_w(attr, fields) do
+
+    end
 
 end
