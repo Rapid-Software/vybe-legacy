@@ -1,7 +1,7 @@
 defmodule Data.Schemas.User do
     use Ecto.Schema
     import Ecto.Query
-    #import Ecto.Changeset
+    import Ecto.Changeset
 
     schema "users" do
         field :uid, :string
@@ -13,7 +13,8 @@ defmodule Data.Schemas.User do
     end
 
     def edit_changeset_w(user, data, fields) do
-
+        user
+        |> cast(data, fields)
     end
 
 end
