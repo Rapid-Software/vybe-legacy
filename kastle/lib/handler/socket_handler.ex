@@ -31,12 +31,16 @@ defmodule Handler.SocketHandler do
             if state.awt_init do
                 {:stop, state}
             else
-                {:ok, state}        
+                {:ok, state}
             end
         end
 
         def websocket_info({:kill}, state) do
             {:reply, {:close, 4003, "killed_by_server"}, state}
+        end
+
+        def websocket_handle({:text, json}, state) do
+
         end
 
 end
