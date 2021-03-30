@@ -49,7 +49,6 @@ defmodule Handler.SocketHandler do
                         end
                 end
 
-
                 # send to handler
                 if not is_nil(state.user_id) do
                     try do
@@ -69,7 +68,11 @@ defmodule Handler.SocketHandler do
 
         # Handlers
         def handler("test", %{"test_data" => _data}, state) do
-            {:ok, state}
+            {:reply, %{"op" => "test_response", d => "test"}, state}
+        end
+
+        def make_socket_msg(data, state) do # incase i want to implement compression
+            data # has no use right now
         end
 
 end
