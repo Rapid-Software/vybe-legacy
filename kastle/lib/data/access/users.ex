@@ -15,6 +15,16 @@ defmodule Data.Access.Users do
       |> Repo.one()}
   end
 
+  def tokens_to_user(token) do
+    {:ok, t =
+      from(u in User,
+      where:
+      u.token == ^token,
+      limit: 1
+      )
+      |> Repo.one()}
+  end
+
   def find_by_spotify_id(spotify_id) do
     {:ok, t =
       from(u in User,

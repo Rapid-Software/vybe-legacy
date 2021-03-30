@@ -6,6 +6,7 @@ defmodule Data.Schemas.User do
     schema "users" do
         field :uid, :string
         field :type, :string
+        field :token, :string
         field :spotify_id, :string
         field :spotify_at, :string
         field :spotify_rt, :string

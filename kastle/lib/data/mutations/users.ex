@@ -6,7 +6,7 @@ defmodule Data.Mutations.Users do
     alias Data.Repo
 
     def spotify_find_or_create(id, at, rt) do
-        t = Data.Access.Users.find_by_spotify_id(id)
+        t = id |> Data.Access.Users.find_by_spotify_id()
     end
 
     def create_spotify_user(id, at, rt) do
