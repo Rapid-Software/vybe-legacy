@@ -48,17 +48,37 @@ defmodule Handler.SocketHandler do
         with {:ok, data} <- Poison.decode(json) do
             case data["op"] do
                 "auth" ->
-                    {:reply, {:text, "auth triggered"}, %{state | awt_init: false}}
+                    {:reply, {:text, "auth triggered"}, %{state | awt_init: false, user_id: "broski"}}
 
                 _ ->
-                    {:reply, {:text, "else triggered"}, state}
+                    if not is_nil(state.user_id) do
+                        try do
+                            case data do
+                                %{"op" => op, "d" => d} ->
+                                    handler(op, d, state)
+                                _ ->
+                                    {:reply, {:close, 4002, "invalid packet"}, state}
+                            end
+                        rescue
+                            e ->
+                                IO.inspect(e)
+                                {:reply, {:close, 4999, "internal error."}, state}
+                        end
+                    else
+                        {:reply, {:close, 4001, "unauthorized"}, state}
+                    end
             end
         end
     end
 
     # Handlers
     def handler("test", %{"test_data" => _data}, state) do
-      {:reply, %{"op" => "test_response", "d" => "test"}, state}
+      {:reply, make_socket_msg(%{"op" => "test_response", "d" => "test"}), state}
+    end
+
+    def make_socket_msg(data) do # convert to binary later??
+        {:text, data
+        |> Poison.encode!()}
     end
 
 end
