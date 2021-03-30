@@ -49,7 +49,7 @@ defmodule Handler.SocketHandler do
             case data["op"] do
                 "auth" ->
                     {:reply, {:text, "auth triggered"}, %{state | awt_init: false, user_id: "broski"}}
-
+                    # finish auth after db and api is finished
                 _ ->
                     if not is_nil(state.user_id) do
                         try do
