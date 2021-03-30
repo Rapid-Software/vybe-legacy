@@ -1,5 +1,5 @@
 <p align="center">
-	  <img src="https://cdn.discordapp.com/attachments/670502278217859123/821088026963869726/bruh4.png" alt="Vybe Logo" />
+	  <img src="https://github.com/VybeCreations/Vybe/blob/staging/juust/old_logo.png" alt="Vybe Logo" />
 </p>
 <h1 align="center">
   Vybe - Tinder for Music! 🎵
