@@ -49,7 +49,6 @@ defmodule Handler.SocketHandler do
                         end
                 end
 
-
                 # send to handler
                 if not is_nil(state.user_id) do
                     try do
