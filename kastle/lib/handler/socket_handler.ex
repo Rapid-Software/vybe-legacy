@@ -69,11 +69,11 @@ defmodule Handler.SocketHandler do
 
         # Handlers
         def handler("test", %{"test_data" => _data}, state) do
-            {:reply, state}
+            {:reply, %{"op" => "test_response", d => "test"}, state}
         end
 
-        def prepare_socket_message(data) do # incase i want to implement compression
-
+        def make_socket_msg(data, state) do # incase i want to implement compression
+            data # has no use right now
         end
 
 end
