@@ -10,8 +10,13 @@ use Mix.Config
 config :kastle,
   ecto_repos: [Data.Repo]
 
+# Snowflake Config
+config :snowflake,
+  machine_id: 23,
+  epoch: 1617228273000
+
 # Spotify API
-config :spotify_ex, 
+config :spotify_ex,
   client_id: System.get_env("SPOTIFY_CLIENT_ID"),
   secret_key: System.get_env("SPOTIFY_SECRET"),
   user_id: System.get_env("SPOTIFY_USER_ID"),
