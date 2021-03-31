@@ -15,7 +15,18 @@ defmodule Data.Mutations.Users do
     end
 
     def create_spotify_user(id, at, rt) do
+    {_, uid} = Snowflake.next_id()
 
+    {:ok, t} = %User{
+        uid: to_string(uid),
+        token: Ecto.UUID.generate(),
+        type: "spotify",
+        spotify_id: id,
+        spotify_at: at,
+        spotify_rt: rt
+      } |> Repo.insert()
+
+      {:created, t}
     end
 
     def add_liked_song(id, sid) do
