@@ -6,12 +6,11 @@ defmodule Data.Mutations.Songs do
   end
 
   def find_or_create(type, id, name, artist) do
-    {_, t} = type |> Data.Access.Songs.find_by_pid(id)
-
-    if t |> is_nil  do
-      add_song(type, id, name, artist)
-    else
-      {:ok, t}
+    case Data.Access.Songs.find_by_pid(type, id) do
+      {:ok, nil} ->
+        add_song(type, id, name, artist)
+      {:ok, t} ->
+        {:found, t}
     end
   end
 
