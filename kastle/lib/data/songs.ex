@@ -6,8 +6,8 @@ defmodule Data.Songs do
 
     defdelegate find_by_type(type), to: Data.Access.Songs #Type: Spotify/Sc/Apple
     # Mutation Functions
-    defdelegate add_song(type, id), to: Data.Mutations.Songs
+    defdelegate add_song(type, id, name, artist), to: Data.Mutations.Songs
 
-    defdelegate find_or_create(type, id), to: Data.Mutations.Songs #if,else this.add_song
+    defdelegate find_or_create(type, id, name, artist), to: Data.Mutations.Songs #if,else this.add_song
     # Query Functions
 end
