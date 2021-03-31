@@ -31,6 +31,8 @@ defmodule Data.Mutations.Users do
 
     def add_liked_song(id, sid) do
         {_, uid} = Snowflake.next_id()
+
+        #{:ok, t} = %
     end
 
     def add_rejected_song(id, sid) do
