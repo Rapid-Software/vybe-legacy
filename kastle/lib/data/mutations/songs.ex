@@ -7,7 +7,7 @@ defmodule Data.Mutations.Songs do
     {_, uid} = Snowflake.next_id()
 
     {:ok, t} = %Song{
-      sid: uid,
+      sid: to_string(uid),
       type: type,
       pid: id,
       name: name,
