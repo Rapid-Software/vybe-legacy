@@ -30,11 +30,11 @@ defmodule Data.Mutations.Users do
     end
 
     def add_liked_song(id, sid) do
-
+        {_, uid} = Snowflake.next_id()
     end
 
     def add_rejected_song(id, sid) do
-
+        {_, uid} = Snowflake.next_id()
     end
 
     def edit_spotify_at(id, t) do
