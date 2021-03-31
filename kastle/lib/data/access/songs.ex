@@ -16,11 +16,23 @@ defmodule Data.Access.Songs do
   end
 
   def find_by_pid(type, pid) do
-
+    {:ok, t =
+      from(s in Song,
+      where:
+      s.type == ^type and
+        s.pid == ^pid,
+      limit: 1
+      )
+      |> Repo.one()}
   end
 
   def find_by_type(type) do
-
+    {:ok, t =
+      from(s in Song,
+      where:
+      s.type == ^type
+      )
+      |> Repo.all()}
   end
 
 end
