@@ -20,8 +20,8 @@ defmodule Kastle.MixProject do
   def application do
     [
       mod: {Kastle, []},
-      applications: [:spotify_ex, :phoenix, :phoenix_ecto, :plug_cowboy, :ecto_sql, :postgrex, :gen_registry, :snowflake],
-      extra_applications: [:logger, :runtime_tools]
+      applications: [:spotify_ex, :phoenix, :phoenix_ecto, :plug_cowboy, :ecto_sql, :postgrex, :gen_registry, :snowflake, :logger],
+      extra_applications: [:runtime_tools]
     ]
   end
 
