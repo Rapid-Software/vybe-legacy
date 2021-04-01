@@ -54,7 +54,7 @@ defmodule Handler.SocketHandler do
                                     {_, nil} ->
                                         {:reply, {:close, 4004, "invalid authorization"}, state}
                                     {_, t} ->
-                                        {:reply, make_socket_msg(%{"op" => "auth_good", "d" => %{"user_id" => t.user_id}}), %{state | user_id: t.user_id, awt_init: false}}
+                                        {:reply, make_socket_msg(%{"op" => "auth_good", "d" => %{"user_id" => t.uid}}), %{state | user_id: t.uid, awt_init: false}}
                                     _ ->
                                         {:reply, {:close, 4999, "internal error"}, state}
                                 end
