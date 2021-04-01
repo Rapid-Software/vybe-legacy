@@ -2,7 +2,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 
 // Pages
-import { TestPage } from "../pages/TestPage";
+//import { TestPage } from "../pages/TestPage";
+import { WelcomeToVybe } from "../pages/WelcomeToVybe";
 
 export type MainStackParams = {
 
@@ -18,7 +19,7 @@ export const MainNav = () => {
             headerShown: false
         }}>
 
-        <Stack.Screen name={"Test" as never} component={TestPage} />
+        <Stack.Screen name={"Welcome" as never} component={WelcomeToVybe} />
 
         </Stack.Navigator>
     )
