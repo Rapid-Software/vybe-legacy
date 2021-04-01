@@ -64,4 +64,13 @@ defmodule Sessions.UserSession do
     end
   end
 
+  def handle_cast({:set, key, value}, state) do
+    {:noreply, Map.put(state, key, value)}
+  end
+
+  def handle_call({:get, key}, _, state) do
+    {:reply, Map.get(state, key), state}
+  end
+
+
 end

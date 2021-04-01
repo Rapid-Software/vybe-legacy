@@ -1,13 +1,17 @@
 defmodule Handler.SocketHandler do
     require Logger
 
+    alias Sessions.UserSession
+
     @type state :: %__MODULE__{
             awt_init: boolean(),
-            user_id: String.t()
+            user_id: String.t(),
+            gid: pid()
           }
 
     defstruct awt_init: true,
-              user_id: nil
+              user_id: nil,
+              gid: nil
 
     @behaviour :cowboy_websocket
 
@@ -16,7 +20,8 @@ defmodule Handler.SocketHandler do
 
       state = %__MODULE__{
         awt_init: true,
-        user_id: nil
+        user_id: nil,
+        gid: nil
       }
 
       {:cowboy_websocket, request, state}
@@ -54,7 +59,16 @@ defmodule Handler.SocketHandler do
                                     {_, nil} ->
                                         {:reply, {:close, 4004, "invalid authorization"}, state}
                                     {_, t} ->
-                                        {:reply, make_socket_msg(%{"op" => "auth_good", "d" => %{"user_id" => t.uid}}), %{state | user_id: t.uid, awt_init: false}}
+                                        pid = case GenServer.start_link(UserSession, %UserSession.State{
+                                            user_id: t.uid,
+                                            account_type: t.type,
+                                            token: token
+                                        }) do
+                                            {:ok, tpid} -> tpid
+                                            {:error, {:already_started, tpid}} -> tpid
+                                            _ -> {:reply, {:close, 4999, "internal error"}, state}
+                                        end
+                                        {:reply, make_socket_msg(%{"op" => "auth_good", "d" => %{"user_id" => t.uid}}), %{state | user_id: t.uid, gid: pid, awt_init: false}}
                                     _ ->
                                         {:reply, {:close, 4999, "internal error"}, state}
                                 end
