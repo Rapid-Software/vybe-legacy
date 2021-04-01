@@ -35,7 +35,7 @@ defmodule Sessions.UserSession do
 
     @spec send_cast(String.t(), any) :: :ok
     def send_cast(user_id, params) do
-        case GenRegistry.lookup(Onion.UserSession, user_id) do
+        case GenRegistry.lookup(Sessions.UserSession, user_id) do
         {:ok, session} ->
             GenServer.cast(session, params)
 
@@ -55,7 +55,7 @@ defmodule Sessions.UserSession do
   end
 
   def send_call(user_id, params) do
-    case GenRegistry.lookup(Onion.UserSession, user_id) do
+    case GenRegistry.lookup(Sessions.UserSession, user_id) do
       {:ok, session} ->
         {:ok, GenServer.call(session, params)}
 
