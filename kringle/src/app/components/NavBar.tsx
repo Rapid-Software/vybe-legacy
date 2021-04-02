@@ -15,10 +15,10 @@ export const NavBar: React.FC<NavBarProps> = ({ curPage }) => {
               </div>   
               <div className="hidden lg:flex items-center justify-center antialiased lg:ml-20 pt-1">
                 <a href="#" className="flex items-center justify-center mr-10 text-base text-gray-700 text-opacity-90 font-medium tracking-tight hover:text-cool-gray-600 transition duration-150 ease-in-out">
-                  About
+                  Features
                 </a>
                 <a href="#" className="flex items-center justify-center mr-10 text-base text-gray-700 text-opacity-90 font-medium tracking-tight hover:text-cool-gray-600 transition duration-150 ease-in-out">
-                  Features
+                  Beta
                 </a>
                 <a href="#" className="flex items-center justify-center mr-10 text-base text-gray-700 text-opacity-90 font-medium tracking-tight hover:text-cool-gray-600 transition duration-150 ease-in-out">
                   More
