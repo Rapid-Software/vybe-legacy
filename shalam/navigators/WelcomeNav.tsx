@@ -6,15 +6,14 @@ import React from "react";
 import { WelcomeToVybe } from "../pages/WelcomeToVybe";
 import { LoginScreen } from "../pages/LogInScreen";
 
-export type MainStackParams = {
+export type WelcomeStackParams = {
 
 };
 
-const Stack = createStackNavigator<MainStackParams>();
+const Stack = createStackNavigator<WelcomeStackParams>();
 
-export const MainNav = () => {
+export const WelcomeNav = () => {
     return (
-        // WebSocket Provider Here
         <Stack.Navigator
         screenOptions={{
             headerShown: false
