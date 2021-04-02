@@ -11,7 +11,9 @@ export const WelcomeToVybe: React.FC = () => {
         <View style={styles.container}>
             <ImageBackground source={img} style={styles.linearGradient}>
                 <Image source={logo} style={styles.logo}></Image>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => {
+                    navigation.navigate("LoginScreen");
+                }}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
                 <Text style={styles.legal}>By pressing the above button, you agree with our Terms and Privacy Policy</Text>
@@ -76,6 +78,17 @@ const styles = StyleSheet.create({
         color: "rgba(255,255,255,0.86)"
     },
     legal: {
-
+        position: "absolute",
+        width: 250,
+        height: 24,
+        textAlign: "center",
+        textAlignVertical: "center",
+        fontFamily: "Roboto",
+        fontStyle: "normal",
+        fontWeight: "300",
+        fontSize: 10,
+        lineHeight: 12,
+        color: "#cccccc",
+        top: "745px"
     }
 });
