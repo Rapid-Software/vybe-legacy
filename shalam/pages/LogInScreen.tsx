@@ -10,7 +10,7 @@ export const LoginScreen: React.FC = () => {
     return (
         <View style={styles.container}>
             <ImageBackground source={img} style={styles.bg}>
-                
+
             </ImageBackground>
         </View>
     )
@@ -29,4 +29,16 @@ const styles = StyleSheet.create({
         width: "375px",
         height: "812px"
     },
+    logo: {
+
+    },
+    headerText: {
+
+    },
+    subtitleText: {
+
+    },
+    spotifyButton: {
+        
+    }
 });
