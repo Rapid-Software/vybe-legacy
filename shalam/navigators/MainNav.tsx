@@ -4,6 +4,7 @@ import React from "react";
 // Pages
 //import { TestPage } from "../pages/TestPage";
 import { WelcomeToVybe } from "../pages/WelcomeToVybe";
+import { LoginScreen } from "../pages/LogInScreen";
 
 export type MainStackParams = {
 
@@ -20,6 +21,7 @@ export const MainNav = () => {
         }}>
 
         <Stack.Screen name={"Welcome" as never} component={WelcomeToVybe} />
+        <Stack.Screen name={"LoginScreen" as never} component={LoginScreen} />
 
         </Stack.Navigator>
     )
