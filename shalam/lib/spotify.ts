@@ -1,4 +1,4 @@
-import { LocalAuthentication } from "expo";
+import * as auth from "expo-auth-session";
 
 export class SpotifyLogin {
 
