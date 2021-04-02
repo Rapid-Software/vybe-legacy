@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from
 
 const img = require("../assets/images/bg.png");
 const logo = require("../assets/images/logo.png")
+const spotify = require("../assets/images/spotify1.png");
 
 export const LoginScreen: React.FC = () => {
     const navigation = useNavigation();
@@ -13,7 +14,10 @@ export const LoginScreen: React.FC = () => {
                 <Image source={logo} style={styles.logo} />
                 <Text style={styles.headerText}>Hello There!</Text>
                 <Text style={styles.subtitleText}>In order to get started we’re gonna have to make some connections.</Text>
-                <TouchableOpacity style={styles.spotifyButton}>Login with Spotify</TouchableOpacity>
+                <TouchableOpacity style={styles.spotifyButton}>
+                    <Image source={spotify} style={styles.spotifyLogo}/>
+                    <Text style={styles.spotifyText}>Login with Spotify</Text>
+                    </TouchableOpacity>
             </ImageBackground>
         </View>
     )
@@ -70,5 +74,25 @@ const styles = StyleSheet.create({
         width: 306,
         height: 45,
         borderRadius: 10,
+    },
+    spotifyText: {
+        position: "relative",
+        textAlign: "center",
+        fontFamily: "Roboto",
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: 16,
+        lineHeight: 19,
+        color: "#ffffff",
+        top: 12
+    },
+    spotifyLogo: {
+        position: "absolute",
+        width: 36,
+        left: 12,
+        bottom: 5,
+        alignItems: "center",
+        height: 36,
+        resizeMode: "contain"
     }
 });
