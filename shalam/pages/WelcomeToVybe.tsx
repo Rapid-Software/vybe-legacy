@@ -9,7 +9,7 @@ export const WelcomeToVybe: React.FC = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <ImageBackground source={img} style={styles.linearGradient}>
+            <ImageBackground source={img} style={styles.bg}>
                 <Image source={logo} style={styles.logo}></Image>
                 <TouchableOpacity style={styles.button} onPress={() => {
                     navigation.navigate("LoginScreen");
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    linearGradient: {
+    bg: {
         flex: 1,
         resizeMode: "cover",
         justifyContent: "center",
