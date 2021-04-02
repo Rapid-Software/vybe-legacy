@@ -14,7 +14,6 @@ const Stack = createStackNavigator<WelcomeStackParams>();
 
 export const WelcomeNav = () => {
     return (
-        // WebSocket Provider Here
         <Stack.Navigator
         screenOptions={{
             headerShown: false
