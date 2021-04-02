@@ -14,6 +14,7 @@ export const WelcomeToVybe: React.FC = () => {
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
+                <Text style={styles.legal}>By pressing the above button, you agree with our Terms and Privacy Policy</Text>
             </ImageBackground>
         </View>
     )
