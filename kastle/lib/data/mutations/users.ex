@@ -31,21 +31,27 @@ defmodule Data.Mutations.Users do
       {:created, t}
     end
 
-    def add_liked_song(id, sid) do
+    def add_liked_song(id, sid, type, pid) do
         {_, uid} = Snowflake.next_id()
 
         {:ok, t} = %LikedSong{
+            uqid: uid,
             uid: id,
-            sid: sid
+            sid: sid,
+            type: type,
+            pid: pid
         } |> Repo.insert()
     end
 
-    def add_rejected_song(id, sid) do
+    def add_rejected_song(id, sid, type, pid) do
         {_, uid} = Snowflake.next_id()
 
         {:ok, t} = %RejectedSong{
+            uqid: uid,
             uid: id,
-            sid: sid
+            sid: sid,
+            type: type,
+            pid: pid
         } |> Repo.insert()
     end
 

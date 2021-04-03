@@ -18,8 +18,8 @@ defmodule Data.Users do
 
     defdelegate delete(id), to: Data.Mutations.Users
 
-    defdelegate add_liked_song(id, sid), to: Data.Mutations.Users
-    defdelegate add_rejected_song(id, sid), to: Data.Mutations.Users
+    defdelegate add_liked_song(id, sid, type, pid), to: Data.Mutations.Users
+    defdelegate add_rejected_song(id, sid, type, pid), to: Data.Mutations.Users
 
     defdelegate spotify_find_or_create(id, at, rt), to: Data.Mutations.Users
 
