@@ -14,4 +14,10 @@ export class SecureStore {
         return await st.getItemAsync("token");
     }
 
+    async isTokenAvailable() : Promise<Boolean> {
+        if (await !this.validateDevice()) return false;
+            else if (await !this.getToken()) return false;
+                else return true;
+    }
+
 }
