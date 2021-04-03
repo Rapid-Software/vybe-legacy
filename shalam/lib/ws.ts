@@ -1,3 +1,4 @@
+import WebSocket from "isomorphic-ws";
 
 export type Connection = {
 
