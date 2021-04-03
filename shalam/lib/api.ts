@@ -1,4 +1,4 @@
 
-
-
-export default null;
+export class APIHandler {
+    
+}
