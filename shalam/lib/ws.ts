@@ -57,7 +57,21 @@ export class VybeSocket {
                 const m = JSON.parse(e.data);
 
                 if (m.op === "auth_good") { // good auth
+                    const c: Connection = {
+                        close: () => skt.close(),
+                        addListener: (opcode, handle) => {
+                            const h = { opcode, handle } as Listener<unknown>;
 
+                            handles.push(h);
+                            return () => handles.splice(handles.indexOf(h), 1)
+                        },
+                        send: sendWrapper
+                    };
+                    resolve(c);
+                } else { // handle op codes
+                    handles
+                        .filter(({ opcode }) => opcode === m.op)
+                        .forEach((h)=>h.handle(m.d))
                 }
             });
 
