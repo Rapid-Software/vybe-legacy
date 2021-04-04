@@ -46,7 +46,7 @@ export class VybeSocket {
 
             skt.addEventListener("close", (err) => {
                 skt.close();
-                resolve(err)
+                reject(err)
             });
 
             skt.addEventListener("open", () => {
