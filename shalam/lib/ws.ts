@@ -1,6 +1,7 @@
 import WebSocket from "isomorphic-ws";
 
 export type Opcode = string;
+export type Token = string;
 
 export type ListenerHandler<Data = unknown> = (
     data: Data
