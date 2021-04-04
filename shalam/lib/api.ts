@@ -7,7 +7,7 @@ export class APIHandler {
         let rurl: string = auth.makeRedirectUri();
         let r: auth.AuthSessionResult = await auth.startAsync({
             authUrl: `${cfg.apiEndpoint}/auth/spotify/login`,
-            returnUrl: "success://localhost:19006"
+            returnUrl: "vybe://vybe/success"
         });
         return r;
     }

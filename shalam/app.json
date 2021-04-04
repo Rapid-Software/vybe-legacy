@@ -2,6 +2,7 @@
   "expo": {
     "name": "shalam",
     "slug": "shalam",
+    "owner": "jamesash1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +29,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "scheme":"success"
+    "scheme":"vybe"
   }
 }
