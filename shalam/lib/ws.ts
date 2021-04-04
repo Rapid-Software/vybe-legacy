@@ -56,7 +56,9 @@ export class VybeSocket {
             });
 
             skt.addEventListener("open", () => {
-
+                sendWrapper("auth", {
+                    token: token
+                });
             });
 
             skt.addEventListener("message", (e) => {
