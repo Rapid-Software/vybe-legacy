@@ -1,4 +1,4 @@
 export const cfg = {
-    apiEndpoint: "",
-    websocketEndpoint: ""
+    apiEndpoint: "http://localhost:4000/",
+    websocketEndpoint: "http://localhost:4000/socket"
 };
