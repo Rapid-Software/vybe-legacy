@@ -3,7 +3,7 @@ defmodule Handler.Routes.Auth do
     import Phoenix.Controller
 
     use Plug.Router
-    
+
 
     plug(:match)
 
@@ -18,15 +18,15 @@ defmodule Handler.Routes.Auth do
     get "/spotify/callback" do
         _ = case Spotify.Authentication.authenticate(conn, conn.params) do
             {:ok, conn} ->
-                conn |> redirect(to: "/auth/success")
+                conn |> redirect(external: "success://localhost:19006")
             {:error, reason, conn} -> conn |> redirect(to: "/auth/failure")
         end
     end
 
     get "/spotify/login" do
-        conn 
+        conn
         |> redirect(external: Spotify.Authorization.url)
-    end 
+    end
 
     get "/spotify/refresh" do
         conn

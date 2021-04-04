@@ -6500,6 +6500,11 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
+uri-scheme@^1.0.71:
+  version "1.0.71"
+  resolved "https://registry.yarnpkg.com/uri-scheme/-/uri-scheme-1.0.71.tgz#827a9597e542ef668ba17b9645a1272af3d8f130"
+  integrity sha512-EpsmgocNx7pBEfAJP/yoRGtg4CpjSA1p1iOqbNu0nvxBkh6YCykVBfY++2VO2HXABHJG6pmxr0Vcd+aeszOTTg==
+
 urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
