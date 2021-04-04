@@ -1,3 +1,4 @@
+import { resolveDiscoveryAsync } from "expo-auth-session";
 import WebSocket from "isomorphic-ws";
 import ReconnectingWebSocket from "reconnecting-websocket";
 
@@ -30,20 +31,36 @@ export class VybeSocket {
     async connect(
         token: Token
     ) : Promise<any> {
-        const skt = new ReconnectingWebSocket("", [], {
-            connectionTimeout,
-            WebSocket
+        new Promise((resolve,reject) => {
+            const skt = new ReconnectingWebSocket("", [], {
+                connectionTimeout,
+                WebSocket
+            });
+
+            const sendWrapper = (opcode: Opcode, data: unknown) => {
+                const d = `{"op":"${opcode}", "d":${JSON.stringify(data)}}`;
+                skt.send(d);
+            };
+
+            const handles: Listener[] = [];
+
+            skt.addEventListener("close", (err) => {
+                skt.close();
+                resolve(err)
+            });
+
+            skt.addEventListener("open", () => {
+
+            });
+
+            skt.addEventListener("message", (e) => {
+                const m = JSON.parse(e.data);
+
+                if (m.op === "auth_good") { // good auth
+
+                }
+            });
+
         });
-
-        const sendWrapper = (opcode: Opcode, data: unknown) => {
-            const d = ``;
-
-            skt.send(d);
-        };
-
-        const handles: Listener[] = [];
-
-        return "";
     }
-
 };
