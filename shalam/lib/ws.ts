@@ -24,9 +24,3 @@ export type Connection = {
 export class VybeSocket {
 
 };
-
-export const connect = (
-
-) => {
-
-};
