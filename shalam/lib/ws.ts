@@ -1,4 +1,8 @@
 import WebSocket from "isomorphic-ws";
+import ReconnectingWebSocket from "reconnecting-websocket";
+
+const connectionTimeout = 20000;
+const heartbeatInterval = 8000;
 
 export type Opcode = string;
 export type Token = string;
@@ -26,6 +30,19 @@ export class VybeSocket {
     async connect(
         token: Token
     ) : Promise<any> {
+        const skt = new ReconnectingWebSocket("", [], {
+            connectionTimeout,
+            WebSocket
+        });
+
+        const sendWrapper = (opcode: Opcode, data: unknown) => {
+            const d = ``;
+
+            skt.send(d);
+        };
+
+        const handles: Listener[] = [];
+
         return "";
     }
 
