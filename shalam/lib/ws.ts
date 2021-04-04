@@ -17,6 +17,7 @@ export type Connection = {
         opcode: Opcode,
         handler: ListenerHandler<Data>
     ) => () => void;
+    send: (opcode: Opcode, data: unknown) => void;
 };
 
 export class VybeSocket {
