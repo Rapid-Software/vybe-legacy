@@ -29,8 +29,9 @@ export class VybeSocket {
 
     conn: Connection | null = null;
 
-    async connect(token: string) {
+    async connect(token: string) : Promise<Connection> {
         this.conn = await this.createSocket(token);
+        return this.conn;
     }
 
     async createSocket(

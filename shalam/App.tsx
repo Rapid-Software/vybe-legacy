@@ -7,7 +7,7 @@ import { SecureStore } from "./lib/securestore";
 export default function App() {
   return (
     <NavigationContainer>
-      {SecureStore.isTokenAvailable() ? <MainNav /> : <WelcomeNav />}
+      {SecureStore.isTokenAvailable() ? <WelcomeNav /> : <MainNav />}
     </NavigationContainer>
   );
 }
