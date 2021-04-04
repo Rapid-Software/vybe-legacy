@@ -1,9 +1,8 @@
-import { resolveDiscoveryAsync } from "expo-auth-session";
 import WebSocket from "isomorphic-ws";
 import ReconnectingWebSocket from "reconnecting-websocket";
+import { cfg } from "./config";
 
 const connectionTimeout = 20000;
-const heartbeatInterval = 8000;
 
 export type Opcode = string;
 export type Token = string;
@@ -38,7 +37,7 @@ export class VybeSocket {
         token: Token
     ) : Promise<Connection> {
         return new Promise((resolve,reject) => {
-            const skt = new ReconnectingWebSocket("", [], {
+            const skt = new ReconnectingWebSocket(cfg.websocketEndpoint, [], {
                 connectionTimeout,
                 WebSocket
             });
