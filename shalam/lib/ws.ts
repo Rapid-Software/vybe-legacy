@@ -23,4 +23,10 @@ export type Connection = {
 
 export class VybeSocket {
 
+    async connect(
+        token: Token
+    ) : Promise<any> {
+        return "";
+    }
+
 };
