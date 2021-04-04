@@ -28,10 +28,16 @@ export type Connection = {
 
 export class VybeSocket {
 
-    async connect(
+    conn: Connection | null = null;
+
+    async connect(token: string) {
+        this.conn = await this.createSocket(token);
+    }
+
+    async createSocket(
         token: Token
-    ) : Promise<any> {
-        new Promise((resolve,reject) => {
+    ) : Promise<Connection> {
+        return new Promise((resolve,reject) => {
             const skt = new ReconnectingWebSocket("", [], {
                 connectionTimeout,
                 WebSocket
