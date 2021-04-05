@@ -5,7 +5,7 @@ defmodule Data.Users do
     defdelegate find_by_spotify_id(spotify_id), to: Data.Access.Users
 
     defdelegate get_all_songs(id), to: Data.Access.Users
-    defdelegate get_liked_songs(uid), to: Data.Access.Users
+    defdelegate get_liked_songs(id), to: Data.Access.Users
     defdelegate get_rejected_songs(id), to: Data.Access.Users
 
     defdelegate get_spotify_at(id), to: Data.Access.Users

@@ -4,6 +4,7 @@ defmodule Data.Access.Users do
 
   alias Data.Schemas.User
   alias Data.Schemas.LikedSong
+  alias Data.Schemas.RejectedSong
   alias Data.Repo
 
   def find_by_uid(id) do
@@ -37,21 +38,24 @@ defmodule Data.Access.Users do
   end
 
   def get_all_songs(id) do
-    {:ok, t} = id |> find_by_uid()
+    {:ok, liked} = id |> get_liked_songs()
+    {:ok, rejected} = id |> get_rejected_songs()
 
-    {:ok, t.liked_songs ++ t.rejected_songs}
+    {:ok, liked ++ rejected}
   end
 
-  def get_liked_songs(uid) do
+  def get_liked_songs(id) do
     {:ok, from(l in LikedSong,
       where:
-      l.uid == ^uid
+      l.uid == ^id
       ) |> Repo.all()}
   end
 
   def get_rejected_songs(id) do
-    {:ok, t} = id |> find_by_uid()
-    {:ok, t.rejected_songs}
+    {:ok, from(l in RejectedSong,
+      where:
+      l.uid == ^id
+      ) |> Repo.all()}
   end
 
   def get_spotify_at(id) do
