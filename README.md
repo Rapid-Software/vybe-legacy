@@ -23,3 +23,6 @@
 - prod -> production branch
 - james -> james dev branch
 - dom -> dom dev branch
+
+## Beta Spreadsheet
+- [Link to Spreadsheet.](https://docs.google.com/spreadsheets/d/1cczbW3xsb12Hv2i9sy67gW2Nz-sIFW_8j_UiO98BJz4/edit#gid=0)
