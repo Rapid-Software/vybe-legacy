@@ -34,11 +34,11 @@ defmodule Data.Mutations.Users do
 
     def update_spotify_user(id, at, rt) do
         case {at, rt} do
-            {at, rt} ->
-                id |> edit_spotify_tokens(at, rt)
-
             {at, nil} ->
                 id |> edit_spotify_at(at)
+
+            {at, rt} ->
+                id |> edit_spotify_tokens(at, rt)
 
             _ -> nil
         end
