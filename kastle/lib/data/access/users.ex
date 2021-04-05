@@ -3,6 +3,7 @@ defmodule Data.Access.Users do
   import Ecto.Query
 
   alias Data.Schemas.User
+  alias Data.Schemas.LikedSong
   alias Data.Repo
 
   def find_by_uid(id) do
@@ -10,8 +11,7 @@ defmodule Data.Access.Users do
       from(u in User,
       where:
       u.uid == ^id,
-      limit: 1,
-      preload: [:liked_songs]
+      limit: 1
       )
       |> Repo.one()}
   end
@@ -43,8 +43,11 @@ defmodule Data.Access.Users do
   end
 
   def get_liked_songs(id) do
-    {:ok, t} = id |> find_by_uid()
-    {:ok, t.liked_songs}
+    {:ok, from(l in LikedSong,
+      where:
+      l.uid == ^id,
+      order_by: [desc: l.uqid]
+      ) |> Repo.all()}
   end
 
   def get_rejected_songs(id) do
