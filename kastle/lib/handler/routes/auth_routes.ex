@@ -23,7 +23,7 @@ defmodule Handler.Routes.Auth do
                 %{
                     "spotify_access_token" => %{value: access_token},
                     "spotify_refresh_token" => %{value: refresh_token}
-                } = conn.resp_cookies
+                } = conn.resp_cookies # make this a case because refresh token only sometimes appears
                 {_, u} = Users.spotify_find_or_create(s.id, access_token, refresh_token)
                 conn |> redirect(external: "exp://vybe/success?token=#{u.token}")
             {:error, reason, conn} -> conn |> redirect(to: "/auth/failure")
