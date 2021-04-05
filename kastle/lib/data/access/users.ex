@@ -11,7 +11,8 @@ defmodule Data.Access.Users do
       from(u in User,
       where:
       u.uid == ^id,
-      limit: 1
+      limit: 1,
+      preload: [:liked_songs]
       )
       |> Repo.one()}
   end
