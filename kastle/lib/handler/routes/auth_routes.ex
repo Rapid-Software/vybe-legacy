@@ -22,8 +22,8 @@ defmodule Handler.Routes.Auth do
                 {:ok, s} = Spotify.Profile.me(conn)
                 # spotify_find_or_create(id, at, rt)
                 %{
-                    %{"value" => access_token},
-                    %{"value" => refresh_token}
+                    "spotify_access_token" => %{"value" => access_token},
+                    "spotify_refresh_token" => %{"value" => refresh_token}
                 } = conn.resp_cookies
                 u = Users.spotify_find_or_create(s.id, access_token, refresh_token)
                 conn |> redirect(external: "exp://vybe/success?token=#{u.token}")
