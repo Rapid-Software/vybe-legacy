@@ -1,5 +1,4 @@
 import WebSocket from "isomorphic-ws";
-import { Alert } from "react-native";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { cfg } from "./config";
 
