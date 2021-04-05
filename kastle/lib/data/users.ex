@@ -15,14 +15,17 @@ defmodule Data.Users do
     # Mutation Functions
     defdelegate edit_spotify_at(id, t), to: Data.Mutations.Users
     defdelegate edit_spotify_rt(id, t), to: Data.Mutations.Users
+    defdelegate edit_spotify_tokens(id, at, rt), to: Data.Mutations.Users
 
     defdelegate delete(id), to: Data.Mutations.Users
 
-    defdelegate add_liked_song(id, sid), to: Data.Mutations.Users
-    defdelegate add_rejected_song(id, sid), to: Data.Mutations.Users
+    defdelegate add_liked_song(id, sid, type, pid), to: Data.Mutations.Users
+    defdelegate add_rejected_song(id, sid, type, pid), to: Data.Mutations.Users
 
     defdelegate spotify_find_or_create(id, at, rt), to: Data.Mutations.Users
 
     defdelegate create_spotify_user(id, at, rt), to: Data.Mutations.Users
+
+    defdelegate update_spotify_user(id, at, rt), to: Data.Mutations.Users
     # Query Functions
 end

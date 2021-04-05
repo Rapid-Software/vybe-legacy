@@ -2,15 +2,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { MainNav } from "./navigators/MainNav";
 import { WelcomeNav } from "./navigators/WelcomeNav";
-
-
-// todo: store login creds (spotify id // etc / token)
-// : mainNav ? welcome nav
+import { SecureStore } from "./lib/securestore";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <WelcomeNav />
+      {SecureStore.isTokenAvailable() ? <WelcomeNav /> : <MainNav />}
     </NavigationContainer>
   );
 }

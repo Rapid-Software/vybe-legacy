@@ -5,7 +5,7 @@
   Vybe - Tinder for Music! 🎵
 </h1>
 
-<p align="center"><b>https://vybe.app/</b></p>
+<p align="center"><b>https://vybemusic.app/</b></p>
 
 ## Structure
 

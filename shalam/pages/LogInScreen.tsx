@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from "react-native";
+import { APIHandler } from "../lib/api";
 
 const img = require("../assets/images/bg.png");
 const logo = require("../assets/images/logo.png")
@@ -14,7 +15,7 @@ export const LoginScreen: React.FC = () => {
                 <Image source={logo} style={styles.logo} />
                 <Text style={styles.headerText}>Hello There!</Text>
                 <Text style={styles.subtitleText}>In order to get started we’re gonna have to make some connections.</Text>
-                <TouchableOpacity style={styles.spotifyButton}>
+                <TouchableOpacity style={styles.spotifyButton} onPress={()=>APIHandler.handleSpotifyLogin()}>
                     <Image source={spotify} style={styles.spotifyLogo}/>
                     <Text style={styles.spotifyText}>Login with Spotify</Text>
                     </TouchableOpacity>
