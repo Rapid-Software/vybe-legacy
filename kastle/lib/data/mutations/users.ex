@@ -39,8 +39,6 @@ defmodule Data.Mutations.Users do
 
             {at, rt} ->
                 id |> edit_spotify_tokens(at, rt)
-
-            _ -> nil
         end
     end
 
