@@ -1,6 +1,6 @@
 defmodule Data.Mutations.Users do
 
-    #import Ecto.Query
+    import Ecto.Query
 
     alias Data.Schemas.User
     alias Data.Schemas.LikedSong
@@ -35,8 +35,7 @@ defmodule Data.Mutations.Users do
     def update_spotify_user(id, at, rt) do
         case {at, rt} do
             {at, rt} ->
-                id |> edit_spotify_at(at)
-                id |> edit_spotify_rt(rt)
+                id |> edit_spotify_tokens(at, rt)
 
             {at, nil} ->
                 id |> edit_spotify_at(at)
@@ -70,11 +69,36 @@ defmodule Data.Mutations.Users do
     end
 
     def edit_spotify_at(id, t) do
-
+        {:ok, t =
+        from(u in User,
+        where:
+        u.uid == ^id,
+        limit: 1,
+        update:
+        [set: [spotify_at: t] ]
+        )}
     end
 
     def edit_spotify_rt(id, t) do
+        {:ok, t =
+            from(u in User,
+            where:
+            u.uid == ^id,
+            limit: 1,
+            update:
+            [set: [spotify_rt: t] ]
+        )}
+    end
 
+    def edit_spotify_tokens(id, at, rt) do
+        {:ok, t =
+            from(u in User,
+            where:
+            u.uid == ^id,
+            limit: 1,
+            update:
+            [set: [spotify_at: at, spotify_rt: rt] ]
+        )}
     end
 
     def delete(id) do

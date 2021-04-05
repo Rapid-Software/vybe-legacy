@@ -15,6 +15,7 @@ defmodule Data.Users do
     # Mutation Functions
     defdelegate edit_spotify_at(id, t), to: Data.Mutations.Users
     defdelegate edit_spotify_rt(id, t), to: Data.Mutations.Users
+    defdelegate edit_spotify_tokens(id, at, rt), to: Data.Mutations.Users
 
     defdelegate delete(id), to: Data.Mutations.Users
 
