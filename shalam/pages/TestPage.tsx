@@ -6,11 +6,14 @@ import { SecureStore } from "../lib/securestore";
 export const TestPage: React.FC = () => {
     const navigation = useNavigation();
     return (
-        <View>
+        <View style={styles.container}>
         <Text>
-            Test Page - Debug Only
+            Vybe Beta User Dashboard - Not for prod use
             </Text>
             <TouchableOpacity style={styles.button} onPress={()=>{SecureStore.clearToken()}}>
+                <Text style={styles.buttonText}>
+                    Reset Tokens
+                </Text>
                 </TouchableOpacity>
         </View>
     )
@@ -19,6 +22,7 @@ export const TestPage: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: "center",
         alignItems: "center"
     },
     button: {
@@ -28,5 +32,16 @@ const styles = StyleSheet.create({
         top: 500,
         height: 45,
         borderRadius: 10,
-    }
+    },
+    buttonText: {
+        position: "relative",
+        textAlign: "center",
+        fontFamily: "Roboto",
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: 16,
+        lineHeight: 19,
+        color: "#ffffff",
+        top: 12
+    },
 });
