@@ -75,7 +75,7 @@ defmodule Data.Mutations.Users do
         u.uid == ^id,
         limit: 1,
         update:
-        [set: [spotify_at: t] ]
+        [set: [spotify_at: ^t] ]
         )}
     end
 
@@ -86,7 +86,7 @@ defmodule Data.Mutations.Users do
             u.uid == ^id,
             limit: 1,
             update:
-            [set: [spotify_rt: t] ]
+            [set: [spotify_rt: ^t] ]
         )}
     end
 
@@ -97,7 +97,7 @@ defmodule Data.Mutations.Users do
             u.uid == ^id,
             limit: 1,
             update:
-            [set: [spotify_at: at, spotify_rt: rt] ]
+            [set: [spotify_at: ^at, spotify_rt: ^rt] ]
         )}
     end
 
