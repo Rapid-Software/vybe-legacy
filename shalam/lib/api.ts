@@ -1,4 +1,5 @@
 import * as auth from "expo-auth-session";
+import { SecureStore } from "../lib/securestore";
 import { cfg } from "./config";
 
 export class APIHandler {
@@ -9,8 +10,9 @@ export class APIHandler {
             authUrl: `${cfg.apiEndpoint}/auth/spotify/login`,
             returnUrl: "exp://vybe/success"
         });
+
         // @ts-ignore
-        r.params
+        await SecureStore.storeToken(r.params.token);
         return r;
     }
 
