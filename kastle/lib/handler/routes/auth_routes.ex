@@ -4,6 +4,7 @@ defmodule Handler.Routes.Auth do
 
     use Plug.Router
 
+    alias Data.Users
 
     plug(:match)
 
@@ -18,7 +19,10 @@ defmodule Handler.Routes.Auth do
     get "/spotify/callback" do
         _ = case Spotify.Authentication.authenticate(conn, conn.params) do
             {:ok, conn} ->
-                conn |> redirect(external: "exp://vybe/success")
+                {:ok, s} = Spotify.Profile.me(conn)
+                # spotify_find_or_create(id, at, rt)
+                u = Users.spotify_find_or_create(s.id, conn.params.access_token, conn.params.refresh_token)
+                conn |> redirect(external: "exp://vybe/success?token=#{u.token}")
             {:error, reason, conn} -> conn |> redirect(to: "/auth/failure")
         end
     end
