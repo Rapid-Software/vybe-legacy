@@ -37,30 +37,27 @@ const styles = StyleSheet.create({
     },
     logo: {
         position: "absolute",
-        width: "79.18px",
-        height: "145px",
-        left: "148px",
-        top: "301px"
+        width: 79,
+        height: 145,
+        top: 301
     },
     logoText: {
         position: "absolute",
-        width: "100px",
-        height: "28px",
-        left: "160px",
-        top: "446px",
+        width: 100,
+        height: 28,
+        top: 446,
         color: "#dcdcdc",
         fontFamily: "Roboto",
-        fontSize: "24px",
-        lineHeight: "28px",
+        fontSize: 24,
+        lineHeight: 28,
         fontWeight: "bold",
         fontStyle: "normal"
     },
     button: {
         position: "absolute",
-        width: "233px",
-        height: "56px",
-        left: "71px",
-        top: "677px",
+        width: 233,
+        height: 56,
+        top: 677,
         backgroundColor: "rgba(255,255,255,0.27)",
         borderRadius: 15,
         textAlign: "center"
@@ -73,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         lineHeight: 28,
         textAlign: "center",
-        top: "13px",
+        top: 13,
         textAlignVertical: "center",
         color: "rgba(255,255,255,0.86)"
     },
@@ -82,13 +79,12 @@ const styles = StyleSheet.create({
         width: 250,
         height: 24,
         textAlign: "center",
-        textAlignVertical: "center",
         fontFamily: "Roboto",
         fontStyle: "normal",
         fontWeight: "300",
         fontSize: 10,
         lineHeight: 12,
         color: "#cccccc",
-        top: "745px"
+        top: 745
     }
 });
