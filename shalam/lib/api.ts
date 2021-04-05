@@ -9,6 +9,8 @@ export class APIHandler {
             authUrl: `${cfg.apiEndpoint}/auth/spotify/login`,
             returnUrl: "exp://vybe/success"
         });
+        // @ts-ignore
+        r.params
         return r;
     }
 
