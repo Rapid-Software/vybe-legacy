@@ -20,8 +20,8 @@ defmodule Handler.Routes.Auth do
         _ = case Spotify.Authentication.authenticate(conn, conn.params) do
             {:ok, conn} ->
                 {:ok, s} = Spotify.Profile.me(conn)
-                creds = Spotify.Credentials.get_tokens_from_response(conn)
                 IO.inspect(conn)
+                creds = Spotify.Credentials.get_tokens_from_response(conn)
                 # spotify_find_or_create(id, at, rt)
                 u = Users.spotify_find_or_create(s.id, creds.access_token, creds.refresh_token)
                 conn |> redirect(external: "exp://vybe/success?token=#{u.token}")
