@@ -4,6 +4,7 @@ import { SecureStore } from "../lib/securestore";
 
 // Pages
 import { TestPage } from "../pages/TestPage";
+import { MainApp } from "../pages/MainApp";
 
 // ws
 import { WebSocketProvider } from "../components/WebSocketProvider";
@@ -39,6 +40,7 @@ export const MainNav = (t: MainNavParams) => {
                 }}>
 
                 <Stack.Screen name={"TestPage" as never} component={TestPage} />
+                <Stack.Screen name={"MainApp" as never} component={MainApp} />
 
                 </Stack.Navigator>
         </WebSocketProvider>

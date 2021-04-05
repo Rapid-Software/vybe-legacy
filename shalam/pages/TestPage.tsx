@@ -15,7 +15,7 @@ export const TestPage: React.FC = () => {
                     Reset Tokens
                 </Text>
                 </TouchableOpacity>
-            <TouchableOpacity style={styles.appButton} onPress={()=>{}}>
+            <TouchableOpacity style={styles.appButton} onPress={()=>{navigation.navigate("MainApp")}}>
                 <Text style={styles.buttonText}>
                     Continue To App
                 </Text>
