@@ -18,7 +18,7 @@ defmodule Handler.Routes.Auth do
     get "/spotify/callback" do
         _ = case Spotify.Authentication.authenticate(conn, conn.params) do
             {:ok, conn} ->
-                conn |> redirect(external: "vybe://vybe/success")
+                conn |> redirect(external: "exp://vybe/success")
             {:error, reason, conn} -> conn |> redirect(to: "/auth/failure")
         end
     end
