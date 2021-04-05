@@ -1,7 +1,6 @@
 import * as auth from "expo-auth-session";
 import { SecureStore } from "../lib/securestore";
 import { cfg } from "./config";
-import { Alert } from "react-native";
 
 export class APIHandler {
 

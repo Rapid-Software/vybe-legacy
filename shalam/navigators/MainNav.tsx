@@ -2,9 +2,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 
 // Pages
-//import { TestPage } from "../pages/TestPage";
-import { WelcomeToVybe } from "../pages/WelcomeToVybe";
-import { LoginScreen } from "../pages/LogInScreen";
 import { TestPage } from "../pages/TestPage";
 
 // ws

@@ -1,8 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { cfg } from "../lib/config";
 import { VybeSocket, Connection } from "../lib/ws";
-import { SecureStore } from "../lib/securestore";
-import { Alert } from "react-native";
 
 type T = Connection | null;
 

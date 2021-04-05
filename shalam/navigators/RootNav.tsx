@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { MainNav } from "./MainNav";
 import { WelcomeNav } from "./WelcomeNav";
 import { SecureStore } from "../lib/securestore";
-import { Alert } from "react-native";
 
 export const RootNav: React.FC = () => {
     const [token, setToken] = useState<string | null>();
