@@ -15,6 +15,11 @@ export const TestPage: React.FC = () => {
                     Reset Tokens
                 </Text>
                 </TouchableOpacity>
+            <TouchableOpacity style={styles.appButton} onPress={()=>{}}>
+                <Text style={styles.buttonText}>
+                    Continue To App
+                </Text>
+            </TouchableOpacity>
         </View>
     )
 };
@@ -30,6 +35,14 @@ const styles = StyleSheet.create({
         backgroundColor: "#2ebd59",
         width: 306,
         top: 500,
+        height: 45,
+        borderRadius: 10,
+    },
+    appButton: {
+        position: "absolute",
+        backgroundColor: "#2ebd59",
+        width: 306,
+        top: 600,
         height: 45,
         borderRadius: 10,
     },
