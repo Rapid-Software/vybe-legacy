@@ -45,8 +45,7 @@ defmodule Data.Access.Users do
   def get_liked_songs(id) do
     {:ok, from(l in LikedSong,
       where:
-      l.uid == ^id,
-      order_by: :uqid
+      l.uid == ^id
       ) |> Repo.all()}
   end
 
