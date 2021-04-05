@@ -1,4 +1,3 @@
-import { NavigationProp } from "@react-navigation/native";
 import * as auth from "expo-auth-session";
 import { SecureStore } from "../lib/securestore";
 import { cfg } from "./config";
@@ -14,7 +13,10 @@ export class APIHandler {
 
         // @ts-ignore
         await SecureStore.storeToken(r.params.token);
-        navigation.navigate("MainNav");
+        navigation.navigate("MainNav", {
+                // @ts-ignore
+                token: r.params.token
+        }); // this
         return r;
     }
 
