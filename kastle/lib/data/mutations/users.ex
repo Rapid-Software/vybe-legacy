@@ -12,6 +12,7 @@ defmodule Data.Mutations.Users do
             {:ok, nil} ->
                 create_spotify_user(id, at, rt)
             {:ok, t} ->
+                update_spotify_user(id, at, rt)
                 {:found, t}
         end
     end
@@ -29,6 +30,18 @@ defmodule Data.Mutations.Users do
       } |> Repo.insert()
 
       {:created, t}
+    end
+
+    def update_spotify_user(id, at, rt) do
+        case {at, rt} do
+            {at, rt} ->
+                nil
+
+            {at, nil} ->
+                nil
+
+            _ -> nil
+        end
     end
 
     def add_liked_song(id, sid, type, pid) do

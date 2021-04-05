@@ -20,10 +20,7 @@ defmodule Handler.Routes.Auth do
         _ = case Spotify.Authentication.authenticate(conn, conn.params) do
             {:ok, conn} ->
                 {:ok, s} = Spotify.Profile.me(conn)
-                %{
-                    "spotify_access_token" => %{value: access_token},
-                    "spotify_refresh_token" => %{value: refresh_token}
-                } = conn.resp_cookies # make this a case because refresh token only sometimes appears
+                {access_token, refresh_token} = { Spotify.Cookies.get_access_token(conn), Spotify.Cookies.get_refresh_token(conn) }
                 {_, u} = Users.spotify_find_or_create(s.id, access_token, refresh_token)
                 conn |> redirect(external: "exp://vybe/success?token=#{u.token}")
             {:error, reason, conn} -> conn |> redirect(to: "/auth/failure")
