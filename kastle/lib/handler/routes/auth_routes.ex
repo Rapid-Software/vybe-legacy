@@ -21,6 +21,7 @@ defmodule Handler.Routes.Auth do
             {:ok, conn} ->
                 {:ok, s} = Spotify.Profile.me(conn)
                 # spotify_find_or_create(id, at, rt)
+                IO.inspect(conn.resp_cookies)
                 %{
                     "spotify_access_token" => %{"value" => access_token},
                     "spotify_refresh_token" => %{"value" => refresh_token}
