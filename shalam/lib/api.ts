@@ -1,10 +1,11 @@
+import { NavigationProp } from "@react-navigation/native";
 import * as auth from "expo-auth-session";
 import { SecureStore } from "../lib/securestore";
 import { cfg } from "./config";
 
 export class APIHandler {
 
-    static async handleSpotifyLogin() : Promise<auth.AuthSessionResult> {
+    static async handleSpotifyLogin(navigation: any) : Promise<auth.AuthSessionResult> {
         let rurl: string = auth.makeRedirectUri();
         let r: auth.AuthSessionResult = await auth.startAsync({
             authUrl: `${cfg.apiEndpoint}/auth/spotify/login`,
@@ -13,6 +14,7 @@ export class APIHandler {
 
         // @ts-ignore
         await SecureStore.storeToken(r.params.token);
+        navigation.navigate("MainNav");
         return r;
     }
 
