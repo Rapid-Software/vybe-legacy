@@ -1,28 +1,46 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { SecureStore } from "../lib/securestore";
 
 // Pages
-//import { TestPage } from "../pages/TestPage";
-import { WelcomeToVybe } from "../pages/WelcomeToVybe";
-import { LoginScreen } from "../pages/LogInScreen";
+import { TestPage } from "../pages/TestPage";
+
+// ws
+import { WebSocketProvider } from "../components/WebSocketProvider";
 
 export type MainStackParams = {
+    
+};
 
+interface MainNavParams {
+    token: string
 };
 
 const Stack = createStackNavigator<MainStackParams>();
 
-export const MainNav = () => {
-    return (
-        // WebSocket Provider Here
-        <Stack.Navigator
-        screenOptions={{
-            headerShown: false
-        }}>
+export const MainNav = (t: MainNavParams) => {
+    const [token, setToken] = useState<string | null>();
+    
+    useEffect(() => {
+        if (!t.token) getToken();
+            else setToken(t.token);
+    }, []);
 
-        <Stack.Screen name={"Welcome" as never} component={WelcomeToVybe} />
-        <Stack.Screen name={"LoginScreen" as never} component={LoginScreen} />
+    const getToken = async () => {
+        setToken(await SecureStore.getToken());
+    }
 
-        </Stack.Navigator>
+    if (!token) return null
+     else return (
+        <WebSocketProvider token={`${token}`}>
+            <Stack.Navigator
+                screenOptions={{
+                    headerShown: false
+                }}>
+
+                <Stack.Screen name={"TestPage" as never} component={TestPage} />
+
+                </Stack.Navigator>
+        </WebSocketProvider>
     )
 }

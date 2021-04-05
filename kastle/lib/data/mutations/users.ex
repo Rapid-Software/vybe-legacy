@@ -1,6 +1,6 @@
 defmodule Data.Mutations.Users do
 
-    #import Ecto.Query
+    import Ecto.Query
 
     alias Data.Schemas.User
     alias Data.Schemas.LikedSong
@@ -12,6 +12,7 @@ defmodule Data.Mutations.Users do
             {:ok, nil} ->
                 create_spotify_user(id, at, rt)
             {:ok, t} ->
+                update_spotify_user(id, at, rt)
                 {:found, t}
         end
     end
@@ -31,30 +32,71 @@ defmodule Data.Mutations.Users do
       {:created, t}
     end
 
-    def add_liked_song(id, sid) do
+    def update_spotify_user(id, at, rt) do
+        case {at, rt} do
+            {at, nil} ->
+                id |> edit_spotify_at(at)
+
+            {at, rt} ->
+                id |> edit_spotify_tokens(at, rt)
+        end
+    end
+
+    def add_liked_song(id, sid, type, pid) do
         {_, uid} = Snowflake.next_id()
 
         {:ok, t} = %LikedSong{
+            uqid: uid,
             uid: id,
-            sid: sid
+            sid: sid,
+            type: type,
+            pid: pid
         } |> Repo.insert()
     end
 
-    def add_rejected_song(id, sid) do
+    def add_rejected_song(id, sid, type, pid) do
         {_, uid} = Snowflake.next_id()
 
         {:ok, t} = %RejectedSong{
+            uqid: uid,
             uid: id,
-            sid: sid
+            sid: sid,
+            type: type,
+            pid: pid
         } |> Repo.insert()
     end
 
     def edit_spotify_at(id, t) do
-
+        {:ok, t =
+        from(u in User,
+        where:
+        u.uid == ^id,
+        limit: 1,
+        update:
+        [set: [spotify_at: ^t] ]
+        )}
     end
 
     def edit_spotify_rt(id, t) do
+        {:ok, t =
+            from(u in User,
+            where:
+            u.uid == ^id,
+            limit: 1,
+            update:
+            [set: [spotify_rt: ^t] ]
+        )}
+    end
 
+    def edit_spotify_tokens(id, at, rt) do
+        {:ok, t =
+            from(u in User,
+            where:
+            u.uid == ^id,
+            limit: 1,
+            update:
+            [set: [spotify_at: ^at, spotify_rt: ^rt] ]
+        )}
     end
 
     def delete(id) do

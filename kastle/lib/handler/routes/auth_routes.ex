@@ -3,7 +3,8 @@ defmodule Handler.Routes.Auth do
     import Phoenix.Controller
 
     use Plug.Router
-    
+
+    alias Data.Users
 
     plug(:match)
 
@@ -18,15 +19,19 @@ defmodule Handler.Routes.Auth do
     get "/spotify/callback" do
         _ = case Spotify.Authentication.authenticate(conn, conn.params) do
             {:ok, conn} ->
-                conn |> redirect(to: "/auth/success")
+                {:ok, s} = Spotify.Profile.me(conn)
+                conn |> fetch_cookies()
+                {access_token, refresh_token} = { conn.resp_cookies["spotify_access_token"], conn.resp_cookies["spotify_refresh_token"] }
+                {_, u} = Users.spotify_find_or_create(s.id, access_token, refresh_token)
+                conn |> redirect(external: "exp://vybe/success?token=#{u.token}")
             {:error, reason, conn} -> conn |> redirect(to: "/auth/failure")
         end
     end
 
     get "/spotify/login" do
-        conn 
+        conn
         |> redirect(external: Spotify.Authorization.url)
-    end 
+    end
 
     get "/spotify/refresh" do
         conn
