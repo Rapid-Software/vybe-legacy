@@ -42,10 +42,10 @@ defmodule Data.Access.Users do
     {:ok, t.liked_songs ++ t.rejected_songs}
   end
 
-  def get_liked_songs(id) do
+  def get_liked_songs(uid) do
     {:ok, from(l in LikedSong,
       where:
-      l.uid == ^id
+      l.uid == ^uid
       ) |> Repo.all()}
   end
 
