@@ -36,28 +36,28 @@ defmodule Data.Access.Users do
   end
 
   def get_all_songs(id) do
-    t = id |> find_by_uid()
+    {:ok, t} = id |> find_by_uid()
 
     {:ok, t.liked_songs ++ t.rejected_songs}
   end
 
   def get_liked_songs(id) do
-    t = id |> find_by_uid()
+    {:ok, t} = id |> find_by_uid()
     {:ok, t.liked_songs}
   end
 
   def get_rejected_songs(id) do
-    t = id |> find_by_uid()
+    {:ok, t} = id |> find_by_uid()
     {:ok, t.rejected_songs}
   end
 
   def get_spotify_at(id) do
-    t = id |> find_by_uid()
+    {:ok, t} = id |> find_by_uid()
     {:ok, t.spotify_at}
   end
 
   def get_spotify_rt(id) do
-    t = id |> find_by_uid()
+    {:ok, t} = id |> find_by_uid()
     {:ok, t.spotify_rt}
   end
 
