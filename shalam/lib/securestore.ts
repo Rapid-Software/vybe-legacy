@@ -14,6 +14,10 @@ export class SecureStore {
         return await st.getItemAsync("token");
     }
 
+    static async clearToken() : Promise<void> {
+        return await st.deleteItemAsync("token");
+    }
+
     static async isTokenAvailable() : Promise<Boolean> {
         let valid = await st.isAvailableAsync();
         if (!valid) return false;
