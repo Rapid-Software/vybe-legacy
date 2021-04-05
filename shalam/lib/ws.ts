@@ -1,6 +1,7 @@
 import WebSocket from "isomorphic-ws";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { cfg } from "./config";
+import { Alert } from "react-native";
 
 const connectionTimeout = 20000;
 
@@ -35,7 +36,7 @@ export class VybeSocket {
     }
 
     async createSocket(
-        token: Token
+        tkn: Token
     ) : Promise<Connection> {
         return new Promise((resolve,reject) => {
             const skt = new ReconnectingWebSocket(cfg.websocketEndpoint, [], {
@@ -51,13 +52,14 @@ export class VybeSocket {
             const handles: Listener[] = [];
 
             skt.addEventListener("close", (err) => {
+                Alert.alert("Socket Closed", `${err.code}`)
                 skt.close();
                 reject(err)
             });
 
             skt.addEventListener("open", () => {
                 sendWrapper("auth", {
-                    token: token
+                    token: tkn
                 });
             });
 
