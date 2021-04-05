@@ -5,6 +5,9 @@ import React from "react";
 import { WelcomeToVybe } from "../pages/WelcomeToVybe";
 import { LoginScreen } from "../pages/LogInScreen";
 
+// MainNav
+import { MainNav } from "../navigators/MainNav";
+
 export type WelcomeStackParams = {
 
 };
@@ -20,6 +23,7 @@ export const WelcomeNav = () => {
 
         <Stack.Screen name={"Welcome" as never} component={WelcomeToVybe} />
         <Stack.Screen name={"LoginScreen" as never} component={LoginScreen} />
+        <Stack.Screen name={"MainNav" as never} component={MainNav} />
 
         </Stack.Navigator>
     )
