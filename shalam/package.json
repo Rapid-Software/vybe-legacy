@@ -25,7 +25,8 @@
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.4",
     "reconnecting-websocket": "^4.4.0",
-    "uri-scheme": "^1.0.71"
+    "uri-scheme": "^1.0.71",
+    "zustand": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
