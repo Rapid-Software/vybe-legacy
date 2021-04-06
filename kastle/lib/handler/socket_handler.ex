@@ -105,7 +105,7 @@ defmodule Handler.SocketHandler do
 
     def handler("heartbeat", %{}, state) do
         IO.puts("bruh")
-        {:reply, make_socket_msg(%{"op" => "heartbeat_ack"}), state}
+        {:reply, make_socket_msg(%{"op" => "heartbeat_ack", "d" => %{}}), state}
     end
 
     def make_socket_msg(data) do # convert to binary later??
