@@ -1,6 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import GestureRecognizer from 'react-native-swipe-gestures';
+import swipeDirections from "react-native-swipe-gestures";
 
 export const MainApp: React.FC = () => {
     const navigation = useNavigation();
