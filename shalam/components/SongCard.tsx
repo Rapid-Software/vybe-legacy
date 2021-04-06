@@ -1,5 +1,6 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
+import { Swipeable } from "react-native-gesture-handler";
 
 const onSwipeRight = (progress: any, dragX: any) => {
     const scale = dragX.interpolate({
@@ -7,6 +8,11 @@ const onSwipeRight = (progress: any, dragX: any) => {
         outputRange: [0, 1],
         extrapolate: 'clamp'
     })
+    return (
+        <Text>
+            SWIPE RIGHT
+            </Text>
+    )
 }
 
 const onSwipeLeft = (progress: any, dragX: any) => {
@@ -15,6 +21,11 @@ const onSwipeLeft = (progress: any, dragX: any) => {
         outputRange: [0, 1],
         extrapolate: 'clamp'
     })
+    return (
+        <Text>
+            SWIPE LEFT
+            </Text>
+    )
 }
 
 export interface SongCardObject {
@@ -22,12 +33,18 @@ export interface SongCardObject {
 }
 
 interface SongCardProps {
-
+    isActive: boolean;
 }
 
-export const SongCard: React.FC<SongCardProps> = () => {
+export const SongCard: React.FC<SongCardProps> = (props: SongCardProps) => {
     return (
-        <View>
-            </View>
+        <Swipeable
+            renderRightActions={(progress, dragx) => onSwipeRight(progress, dragx)}
+            renderLeftActions={(progress, dragx) => onSwipeLeft(progress, dragx)}
+        >
+            <Text>
+                SONG CARD
+            </Text>
+            </Swipeable>
     )
 }
