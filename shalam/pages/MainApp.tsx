@@ -16,5 +16,6 @@ export const MainApp: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    }
+        backgroundColor: "#1b1b1d"
+    },
 });
