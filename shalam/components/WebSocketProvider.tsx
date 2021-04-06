@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { VybeSocket, Connection } from "../lib/ws";
 import { Alert } from "react-native";
-import { useSocketStore } from "../stores/useSocketStore";
 
 type T = Connection | null;
 
@@ -23,7 +22,6 @@ export const WebSocketProvider: React.FC<WSPProps> = (props: WSPProps) => {
                 .connect(props.token)
                 .then((v: Connection) => {
                     setConn(v);
-                    useSocketStore();
                 })
                 .catch((err) => {
                     
@@ -33,6 +31,7 @@ export const WebSocketProvider: React.FC<WSPProps> = (props: WSPProps) => {
 
     return (
         <WSContext.Provider value={useMemo(()=> ({conn}), [conn])}>
+            
             {props.children}
         </WSContext.Provider>
     );

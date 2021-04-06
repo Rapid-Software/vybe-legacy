@@ -1,6 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React, { useState, useEffect } from "react";
 import { SecureStore } from "../lib/securestore";
+import { useSocketStore } from "../stores/useSocketStore";
 
 // Pages
 import { TestPage } from "../pages/TestPage";
