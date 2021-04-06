@@ -11,7 +11,7 @@ export const MainApp: React.FC = () => {
 
     return (
     <View style={styles.container}>
-            <SongCard>
+            <SongCard isActive={true}>
                 </SongCard>
     </View>
     )
@@ -24,4 +24,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    activeSong: {
+
+    },
+    leftSong: {
+
+    },
+    rightSong: {
+        
+    }
 });

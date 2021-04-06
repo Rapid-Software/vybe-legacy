@@ -8,6 +8,11 @@ const onSwipeRight = (progress: any, dragX: any) => {
         outputRange: [0, 1],
         extrapolate: 'clamp'
     })
+    return (
+        <Text>
+            SWIPE RIGHT
+            </Text>
+    )
 }
 
 const onSwipeLeft = (progress: any, dragX: any) => {
@@ -16,6 +21,11 @@ const onSwipeLeft = (progress: any, dragX: any) => {
         outputRange: [0, 1],
         extrapolate: 'clamp'
     })
+    return (
+        <Text>
+            SWIPE LEFT
+            </Text>
+    )
 }
 
 export interface SongCardObject {
@@ -27,8 +37,12 @@ interface SongCardProps {
 }
 
 export const SongCard: React.FC<SongCardProps> = () => {
+
     return (
-        <Swipeable>
+        <Swipeable
+            renderRightActions={(progress, dragx) => onSwipeRight(progress, dragx)}
+            renderLeftActions={(progress, dragx) => onSwipeLeft(progress, dragx)}
+        >
             <Text>
                 SONG CARD
             </Text>
