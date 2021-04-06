@@ -17,6 +17,10 @@ const onSwipeLeft = (progress: any, dragX: any) => {
     })
 }
 
+export interface SongCardObject {
+    card: React.FC<SongCardProps>;
+}
+
 interface SongCardProps {
 
 }
