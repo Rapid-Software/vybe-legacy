@@ -1,4 +1,5 @@
-
+import React from "react";
+import { View } from "react-native";
 
 const onSwipeRight = (progress: any, dragX: any) => {
     const scale = dragX.interpolate({
@@ -16,5 +17,13 @@ const onSwipeLeft = (progress: any, dragX: any) => {
     })
 }
 
+interface SongCardProps {
 
-export default null;
+}
+
+export const SongCard: React.FC<SongCardProps> = () => {
+    return (
+        <View>
+            </View>
+    )
+}
