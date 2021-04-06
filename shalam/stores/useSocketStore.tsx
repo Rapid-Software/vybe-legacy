@@ -25,4 +25,4 @@ export const useSocketStore = () => {
 export const MainWsHandlerPrv: React.FC = ({ children }) => {
     useSocketStore();
     return <>{children}</>;
-};
+}; 
