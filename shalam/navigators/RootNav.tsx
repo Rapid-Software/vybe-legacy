@@ -15,8 +15,8 @@ export const RootNav: React.FC = () => {
     const getToken = async () => {
         setToken(await SecureStore.getToken());
     }
-
+    
     return (
-        !token ? <WelcomeNav /> : <MainNav token={token} /> 
+        !token ? <WelcomeNav /> : <MainNav token={token} />
     )
 }

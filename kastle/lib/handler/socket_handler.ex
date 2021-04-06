@@ -103,6 +103,11 @@ defmodule Handler.SocketHandler do
       {:reply, make_socket_msg(%{"op" => "test_response", "d" => "test"}), state}
     end
 
+    def handler("heartbeat", %{}, state) do
+        IO.puts("bruh")
+        {:reply, make_socket_msg(%{"op" => "heartbeat_ack", "d" => %{}}), state}
+    end
+
     def make_socket_msg(data) do # convert to binary later??
         {:text, data
         |> Poison.encode!()}

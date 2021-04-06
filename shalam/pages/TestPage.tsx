@@ -1,10 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { SecureStore } from "../lib/securestore";
+import { WSContext } from "../components/WebSocketProvider";
 
 export const TestPage: React.FC = () => {
     const navigation = useNavigation();
+    const { conn } = useContext(WSContext);
     return (
         <View style={styles.container}>
         <Text>
@@ -18,6 +20,11 @@ export const TestPage: React.FC = () => {
             <TouchableOpacity style={styles.appButton} onPress={()=>{navigation.navigate("MainApp")}}>
                 <Text style={styles.buttonText}>
                     Continue To App
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.socketTest} onPress={()=>{conn?.send("heartbeat", {})}}>
+                <Text style={styles.buttonText}>
+                    Send HB
                 </Text>
             </TouchableOpacity>
         </View>
@@ -43,6 +50,14 @@ const styles = StyleSheet.create({
         backgroundColor: "#2ebd59",
         width: 306,
         top: 600,
+        height: 45,
+        borderRadius: 10,
+    },
+    socketTest: {
+        position: "absolute",
+        backgroundColor: "#2ebd59",
+        width: 306,
+        top: 700,
         height: 45,
         borderRadius: 10,
     },

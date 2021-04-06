@@ -1,35 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
-
-const onSwipeRight = () => {
-    return (
-        <Text>
-        right
-    </Text>
-    )
-};
-
-const onSwipeLeft = () => {
-    return (
-        <Text>
-        left
-    </Text>
-    )
-};
+import { SongCard, SongCardObject } from "../components/SongCard";
+import { useQueueStore, addQueue } from "../stores/useQueueStore";
 
 export const MainApp: React.FC = () => {
     const navigation = useNavigation();
+    const s = useQueueStore().queue;
 
     return (
     <View style={styles.container}>
-            <Swipeable renderRightActions={onSwipeRight}
-            renderLeftActions={onSwipeLeft}>
-            <Text>
-                this text is moveable
-            </Text>
-            </Swipeable>
+            <SongCard isActive={true}>
+                </SongCard>
     </View>
     )
 };
@@ -41,4 +24,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    activeSong: {
+
+    },
+    leftSong: {
+
+    },
+    rightSong: {
+        
+    }
 });

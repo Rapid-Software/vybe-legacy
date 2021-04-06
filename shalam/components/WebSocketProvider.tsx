@@ -31,6 +31,7 @@ export const WebSocketProvider: React.FC<WSPProps> = (props: WSPProps) => {
 
     return (
         <WSContext.Provider value={useMemo(()=> ({conn}), [conn])}>
+            
             {props.children}
         </WSContext.Provider>
     );
