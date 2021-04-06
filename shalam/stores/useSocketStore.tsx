@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { Alert } from "react-native";
 import { WSContext } from "../components/WebSocketProvider";
 
 
@@ -13,7 +12,7 @@ export const useSocketStore = () => {
         const handles = [
             conn.addListener<any>("heartbeat_ack", () => {
                 //conn.send("heartbeat_ack", {});
-                Alert.alert("ack", "ack");
+                //Alert.alert("ack", "ack");
             })
         ];
 
@@ -23,4 +22,7 @@ export const useSocketStore = () => {
     }, [conn]);
 };
 
-
+export const MainWsHandlerPrv: React.FC = ({ children }) => {
+    useSocketStore();
+    return <>{children}</>;
+};
