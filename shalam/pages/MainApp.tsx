@@ -11,9 +11,8 @@ export const MainApp: React.FC = () => {
 
     return (
     <View style={styles.container}>
-            <Text>
-                MAIN APP
-            </Text>
+            <SongCard>
+                </SongCard>
     </View>
     )
 };

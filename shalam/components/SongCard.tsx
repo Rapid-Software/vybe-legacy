@@ -1,5 +1,6 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
+import { Swipeable } from "react-native-gesture-handler";
 
 const onSwipeRight = (progress: any, dragX: any) => {
     const scale = dragX.interpolate({
@@ -27,7 +28,10 @@ interface SongCardProps {
 
 export const SongCard: React.FC<SongCardProps> = () => {
     return (
-        <View>
-            </View>
+        <Swipeable>
+            <Text>
+                SONG CARD
+            </Text>
+            </Swipeable>
     )
 }
