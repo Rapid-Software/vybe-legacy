@@ -33,11 +33,10 @@ export interface SongCardObject {
 }
 
 interface SongCardProps {
-
+    isActive: boolean;
 }
 
-export const SongCard: React.FC<SongCardProps> = () => {
-
+export const SongCard: React.FC<SongCardProps> = (props: SongCardProps) => {
     return (
         <Swipeable
             renderRightActions={(progress, dragx) => onSwipeRight(progress, dragx)}
