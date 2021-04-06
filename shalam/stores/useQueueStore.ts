@@ -19,3 +19,7 @@ export const addQueue = (c: SongCardObject) => {
     const s = useQueueStore.getState().queue;
     useQueueStore.getState().setQueue({ queue: [...s, c] })
 };
+
+export const setQueue = (c: SongCardObject[]) => {
+    useQueueStore.getState().setQueue({queue: c});
+};
