@@ -5,7 +5,7 @@ import { Alert } from "react-native";
 type T = Connection | null;
 
 export const WSContext = React.createContext<{ conn: T }>({
-    conn: null
+    conn: null,
 });
 
 interface WSPProps {
@@ -18,7 +18,7 @@ export const WebSocketProvider: React.FC<WSPProps> = (props: WSPProps) => {
 
     useEffect(() => {
         if (!conn) {
-            new VybeSocket()
+            const w = new VybeSocket()
                 .connect(props.token)
                 .then((v: Connection) => {
                     setConn(v);
@@ -26,6 +26,7 @@ export const WebSocketProvider: React.FC<WSPProps> = (props: WSPProps) => {
                 .catch((err) => {
                     
                 });
+            
         }
     }, [conn, props.token]);
 
