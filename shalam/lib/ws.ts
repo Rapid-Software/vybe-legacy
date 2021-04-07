@@ -3,9 +3,6 @@ import ReconnectingWebSocket from "reconnecting-websocket";
 import { cfg } from "./config";
 import { Alert } from "react-native";
 
-const connectionTimeout = 20000;
-const heartbeatInterval = 30000;
-
 export type Opcode = string;
 export type Token = string;
 
@@ -43,7 +40,7 @@ export class VybeSocket {
     ) : Promise<Connection> {
         return new Promise((resolve,reject) => {
             const skt = new ReconnectingWebSocket(cfg.websocketEndpoint, [], {
-                connectionTimeout,
+                connectionTimeout: cfg.WSSettings.connectionTimeout,
                 WebSocket
             });
 
@@ -96,7 +93,7 @@ export class VybeSocket {
         if (!this.hbHandle && this.conn)
             this.hbHandle = setInterval(() => {
                 this.conn?.send("heartbeat", {});
-            }, heartbeatInterval)
+            }, cfg.WSSettings.heartbeatInterval)
     }
 
     async stopHeartbeat() {
