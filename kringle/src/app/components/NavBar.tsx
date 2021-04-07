@@ -29,7 +29,7 @@ export const NavBar: React.FC<NavBarProps> = ({ curPage }) => {
               </div>
             </div>
             <div className="md:flex items-center justify-center">
-              <button className="px-6 py-3 rounded-3xl font-medium bg-gradient-to-b from-yellow-600 to-red-700 text-white outline-none focus:outline-none hover:shadow-md hover:from-true-gray-900 transition duration-200 ease-in-out">Download</button>
+              <button onClick={()=>{}} className="px-6 py-3 rounded-3xl font-medium bg-gradient-to-b from-yellow-600 to-red-700 text-white outline-none focus:outline-none hover:shadow-md hover:from-true-gray-900 transition duration-200 ease-in-out">Download</button>
             </div>
           </div>
             </div>
