@@ -56,6 +56,7 @@ export class VybeSocket {
 
             skt.addEventListener("close", (err) => {
                 Alert.alert("Socket Closed", `${err.code}`)
+                this.stopHeartbeat();
                 skt.close();
                 reject(err)
             });
