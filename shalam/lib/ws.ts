@@ -4,6 +4,7 @@ import { cfg } from "./config";
 import { Alert } from "react-native";
 
 const connectionTimeout = 20000;
+const heartbeatInterval = 30000;
 
 export type Opcode = string;
 export type Token = string;
@@ -29,9 +30,11 @@ export type Connection = {
 export class VybeSocket {
 
     conn: Connection | null = null;
+    hbHandle: NodeJS.Timeout | null = null;
 
     async connect(token: string) : Promise<Connection> {
         this.conn = await this.createSocket(token);
+        this.setupHeartbeat();
         return this.conn;
     }
 
@@ -86,5 +89,17 @@ export class VybeSocket {
             });
 
         });
+    }
+
+    async setupHeartbeat() {
+        if (!this.hbHandle && this.conn)
+            this.hbHandle = setInterval(() => {
+                this.conn?.send("heartbeat", {});
+            }, heartbeatInterval)
+    }
+
+    async stopHeartbeat() {
+        if (this.hbHandle) 
+            clearInterval(this.hbHandle);
     }
 };
