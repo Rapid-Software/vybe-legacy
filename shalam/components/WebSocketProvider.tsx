@@ -26,7 +26,6 @@ export const WebSocketProvider: React.FC<WSPProps> = (props: WSPProps) => {
                 .catch((err) => {
                     
                 });
-            
         }
     }, [conn, props.token]);
 
