@@ -22,12 +22,12 @@ const testObj: QueueSongInfo = {
 }
 
 export interface TempSongCardProps {
-    info: QueueSongInfo
+    info: QueueSongInfo,
 }
 
-export const QueueContext = React.createContext<{ list: QueueSongInfo[], curLink: number[] }>({
+export const QueueContext = React.createContext<{ list: QueueSongInfo[], soundObjList: any[] }>({
     list: [ testObj, testObj, testObj ],
-    curLink: [0]
+    soundObjList: [],
 });
 
 export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardProps) => {

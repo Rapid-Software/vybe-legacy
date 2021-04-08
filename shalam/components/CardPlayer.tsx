@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import { ProgressBar } from "react-native-paper";
 import { Audio, AVPlaybackStatus } from "expo-av";
 import { QueueContext } from "./TempSongCard";
@@ -18,15 +18,11 @@ export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) =>
     const [ prog, setProg ] = useState(0.0);
     const [ sound, setSound ] = useState<any | null>(null); // expo-av sucks ass
     
-    const {list, curLink} = useContext(QueueContext);
+    const { list, soundObjList } = useContext(QueueContext);
 
     useEffect(() => {
-        if (!sound) {
-            getSound(props.playbackUrl)
-        } else {
-            
-        }
-
+        if (!sound)
+            getSound(props.playbackUrl);
     });
 
     const getSound = async(uri: string) => {
@@ -36,11 +32,8 @@ export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) =>
         );
 
         setSound(s);
-    };    
-
-    const stopSound = async() => {
-        await sound.stopAsync();
-    }
+        soundObjList.push(s);
+    };
 
     return (
         <ProgressBar progress={prog} />
