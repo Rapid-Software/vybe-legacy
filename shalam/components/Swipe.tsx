@@ -37,6 +37,7 @@ export const Swipe: React.FC = () => {
         onSwipedRight={(index)=>onSwipeRight(index)}
         onSwipedLeft={(index)=>onSwipeLeft(index)}
         backgroundColor={"transparent"}
+        infinite
         />
     );
 }
