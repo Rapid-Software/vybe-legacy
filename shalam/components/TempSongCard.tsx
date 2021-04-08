@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { Text, StyleSheet, View, ImageBackground } from "react-native";
 import { CardPlayer } from "./CardPlayer";
 
+// test song imports
+import { bib, sis, elevate, day } from "../tests/testsongs";
+
 export interface QueueSongInfo {
     songName: string,
     platform: string,
@@ -9,15 +12,6 @@ export interface QueueSongInfo {
     image: string,
     artist: string,
     playbackUrl: string
-}
-
-const testObj: QueueSongInfo = {
-    songName: "Back In Blood",
-    platform:  "spotify",
-    pid: "some id",
-    image: "https://cdn.discordapp.com/attachments/788969795697508373/829726171078852659/maxresdefault.png",
-    artist: "Pooh Shiesty (feat. Lil Durk)",
-    playbackUrl: "https://p.scdn.co/mp3-preview/355965ad5f2d2911a357c40bd81c1080d0a7db7c?cid=774b29d4f13844c495f206cafdad9c86"
 }
 
 export const clearSoundObjList = () => {
@@ -30,7 +24,7 @@ export interface TempSongCardProps {
 }
 
 export const QueueContext = React.createContext<{ list: QueueSongInfo[], soundObjList: any[] }>({
-    list: [ testObj, testObj, testObj ],
+    list: [ sis, elevate, bib, day ],
     soundObjList: [],
 });
 
