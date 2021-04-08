@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
-import { ProgressBar } from "react-native-paper";
+import { StyleSheet, View } from "react-native";
+import { Bar } from "react-native-progress";
 import { Audio } from "expo-av";
 import { QueueContext } from "./TempSongCard";
 
@@ -33,7 +33,7 @@ export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) =>
         if (sound) {
             const handle = setInterval(() => {
                 setProg( prog + 1)
-                if (prog > 28) setProg(0);
+                if (prog > 28) setProg(0.5);
             }, 1000)
 
             return () => {
@@ -43,10 +43,17 @@ export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) =>
     });
 
     return (
-        <ProgressBar progress={prog / 29} />
+        <View style={styles.bar}>
+        <Bar progress={prog / 29} borderColor={"#ffffff00"} color={"#a2370d"} height={3} width={300} unfilledColor={"#474747"} />
+        </View>
     )
 };
 
 const styles = StyleSheet.create({
-
+    bar: {
+        top: 485,
+        alignSelf: "center",
+        justifyContent: "center",
+        alignItems: "center"
+    }
 });
