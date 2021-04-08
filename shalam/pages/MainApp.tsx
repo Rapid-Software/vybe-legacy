@@ -1,9 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Swipeable } from "react-native-gesture-handler";
-import { TempSongCard, TempSongCardObject } from "../components/TempSongCard";
 import { useQueueStore, addQueue } from "../stores/useQueueStore";
+import { Swipe } from "../components/Swipe";
 
 export const MainApp: React.FC = () => {
     const navigation = useNavigation();
@@ -11,8 +10,7 @@ export const MainApp: React.FC = () => {
 
     return (
     <View style={styles.container}>
-            <TempSongCard isActive={true}>
-                </TempSongCard>
+        <Swipe />
     </View>
     )
 };
