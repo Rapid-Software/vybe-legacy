@@ -1,4 +1,4 @@
-import { SongCardObject, SongCard } from "../components/SongCard";
+import { TempSongCardObject, TempSongCard } from "../components/TempSongCard";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 
@@ -22,16 +22,16 @@ export const useQueueStore = create(
     )
 );
 
-export const addQueue = (c: SongCardObject) => {
+export const addQueue = (c: TempSongCardObject) => {
     const s = useQueueStore.getState().queue;
     useQueueStore.getState().setQueue({ queue: [...s, c] })
 };
 
-export const setQueue = (c: SongCardObject[]) => {
+export const setQueue = (c: TempSongCardObject[]) => {
     useQueueStore.getState().setQueue({queue: c});
 };
 
-export const addHistory = (c: SongCardObject) => {
+export const addHistory = (c: TempSongCardObject) => {
     const s = useQueueStore.getState().likedHistory;
     useQueueStore.getState().setHistory({ likedHistory: [...s, c] })
 };
