@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Alert, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { ProgressBar } from "react-native-paper";
 import { Audio } from "expo-av";
 import { QueueContext } from "./TempSongCard";
@@ -9,7 +9,6 @@ export interface CardPlayerProps {
 };
 
 export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) => {
-    const [ i, setI ] = useState(0);
     const [ prog, setProg ] = useState(0);
     const [ sound, setSound ] = useState<any | null>(null); // expo-av sucks ass
     
@@ -27,7 +26,7 @@ export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) =>
         );
 
         setSound(s);
-        setI(soundObjList.push(s));
+        soundObjList.push(s);
     };
 
     useEffect(() => {
