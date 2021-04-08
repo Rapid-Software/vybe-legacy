@@ -19,18 +19,15 @@ defmodule Data.Repo.Migrations.AddDatabase do
 
     create table(:liked_songs) do
       add :uqid, :string
-      add :uid, references(:users)
-      add :sid, references(:songs)
+      add :uid, :string
+      add :sid, :string
     end
 
     create table(:rejected_songs) do
       add :uqid, :string
-      add :uid, references(:users)
-      add :sid, references(:songs)
+      add :uid, :string
+      add :sid, :string
     end
-
-    create unique_index(:liked_songs, [:uid, :sid])
-    create unique_index(:rejected_songs, [:uid, :sid])
 
   end
 end

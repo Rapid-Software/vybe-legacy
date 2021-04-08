@@ -1,9 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React, { useState, useEffect } from "react";
 import { SecureStore } from "../lib/securestore";
+import { MainWsHandlerPrv } from "../stores/useSocketStore";
 
 // Pages
 import { TestPage } from "../pages/TestPage";
+import { MainApp } from "../pages/MainApp";
 
 // ws
 import { WebSocketProvider } from "../components/WebSocketProvider";
@@ -33,14 +35,17 @@ export const MainNav = (t: MainNavParams) => {
     if (!token) return null
      else return (
         <WebSocketProvider token={`${token}`}>
+            <MainWsHandlerPrv>
             <Stack.Navigator
                 screenOptions={{
                     headerShown: false
                 }}>
 
                 <Stack.Screen name={"TestPage" as never} component={TestPage} />
+                <Stack.Screen name={"MainApp" as never} component={MainApp} />
 
                 </Stack.Navigator>
+                </MainWsHandlerPrv>
         </WebSocketProvider>
     )
 }
