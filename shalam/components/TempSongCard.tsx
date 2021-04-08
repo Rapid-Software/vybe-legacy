@@ -1,15 +1,15 @@
 import React from "react";
 import { Text } from "react-native";
 
-export interface TempSongCardObject {
-    card: React.FC<TempSongCardProps>;
+export interface QueueSongInfo {
+
 }
 
-interface TempSongCardProps {
-    isActive: boolean;
-}
+export const QueueContext = React.createContext<{ list: QueueSongInfo[] }>({
+    list: [],
+});
 
-export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardProps) => {
+export const TempSongCard: React.FC = () => {
     return (
             <Text>
                 SONG CARD
