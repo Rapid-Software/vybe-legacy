@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Text, StyleSheet, View, ImageBackground } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { CardPlayer } from "./CardPlayer";
 
 export interface QueueSongInfo {

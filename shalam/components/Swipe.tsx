@@ -1,11 +1,7 @@
 import React, { useState, useContext } from "react";
-import { TempSongCard, QueueContext, QueueSongInfo } from "../components/TempSongCard";
+import { TempSongCard, QueueContext } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
-import { StyleSheet, View } from "react-native";
-
-const renderNextCard = () => {
-
-}
+import { StyleSheet } from "react-native";
 
 const onSwipeRight = (index: number) => {
 

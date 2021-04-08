@@ -1,13 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Alert, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { ProgressBar } from "react-native-paper";
 import { Audio, AVPlaybackStatus } from "expo-av";
 import { QueueContext } from "./TempSongCard";
-
-export interface playbackObject {
-    sound: Audio.Sound;
-    status: AVPlaybackStatus;
-}
 
 export interface CardPlayerProps { 
     playbackUrl: string
@@ -41,10 +36,5 @@ export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) =>
 };
 
 const styles = StyleSheet.create({
-    outer: {
 
-    },
-    inner: {
-
-    }
 });
