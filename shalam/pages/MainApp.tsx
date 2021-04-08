@@ -1,5 +1,5 @@
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Swipe } from "../components/Swipe";
 import { clearSoundObjList } from "../components/TempSongCard";

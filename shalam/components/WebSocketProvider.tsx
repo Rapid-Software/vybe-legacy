@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { VybeSocket, Connection } from "../lib/ws";
-import { Alert } from "react-native";
 
 type T = Connection | null;
 
