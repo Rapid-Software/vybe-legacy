@@ -5,6 +5,8 @@ import { Swipe } from "../components/Swipe";
 
 export const MainApp: React.FC = () => {
     const navigation = useNavigation();
+    
+    
 
     return (
     <View style={styles.container}>

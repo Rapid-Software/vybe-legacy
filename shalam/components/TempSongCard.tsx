@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Text, StyleSheet, View, ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { CardPlayer } from "./CardPlayer";
 
 export interface QueueSongInfo {
     songName: string,
@@ -17,18 +18,25 @@ const testObj: QueueSongInfo = {
     pid: "some id",
     image: "https://cdn.discordapp.com/attachments/788969795697508373/829726171078852659/maxresdefault.png",
     artist: "Pooh Shiesty (feat. Lil Durk)",
-    playbackUrl: "some url"
+    playbackUrl: "https://p.scdn.co/mp3-preview/355965ad5f2d2911a357c40bd81c1080d0a7db7c?cid=774b29d4f13844c495f206cafdad9c86"
 }
+
+export const clearSoundObjList = () => {
+    const { list, soundObjList } = useContext(QueueContext);
+    while (soundObjList.length > 0) soundObjList.pop(); // empty array
+};
 
 export interface TempSongCardProps {
-    info: QueueSongInfo
+    info: QueueSongInfo,
 }
 
-export const QueueContext = React.createContext<{ list: QueueSongInfo[] }>({
+export const QueueContext = React.createContext<{ list: QueueSongInfo[], soundObjList: any[] }>({
     list: [ testObj, testObj, testObj ],
+    soundObjList: [],
 });
 
 export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardProps) => {
+
 
     return (
         <View style={styles.container}>
@@ -39,6 +47,7 @@ export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardPro
             <Text style={styles.artist}>
                 {props.info.artist}
             </Text>
+            <CardPlayer playbackUrl={props.info.playbackUrl} />
             </ImageBackground>
             </View>
     )

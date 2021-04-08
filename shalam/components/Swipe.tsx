@@ -16,10 +16,12 @@ const onSwipeLeft = (index: number) => {
 }
 
 export const Swipe: React.FC = () => {
-    const { list } = useContext(QueueContext); 
+    const { list, soundObjList } = useContext(QueueContext); 
     const [index, setIndex] = useState(0);
 
     const onSwipe = () => {
+        const s = soundObjList[index];
+        s.sound.unloadAsync();
         setIndex(index + 1);
     }    
 
@@ -27,9 +29,13 @@ export const Swipe: React.FC = () => {
         <Swiper
         cards={list}
         cardIndex={index}
-        renderCard={(card)=><TempSongCard info={card} />}
+        renderCard={(card, cardIndex)=> {
+
+        return (
+        <TempSongCard info={card} /> )
+        }}
         onSwiped={onSwipe}
-        stackSize={2}
+        stackSize={1}
         stackScale={10}
         stackSeparation={14}
         disableTopSwipe
@@ -37,7 +43,6 @@ export const Swipe: React.FC = () => {
         onSwipedRight={(index)=>onSwipeRight(index)}
         onSwipedLeft={(index)=>onSwipeLeft(index)}
         backgroundColor={"transparent"}
-        infinite
         />
     );
 }
