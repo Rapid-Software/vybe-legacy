@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
-import { SongCard, SongCardObject } from "../components/SongCard";
+import { TempSongCard, TempSongCardObject } from "../components/TempSongCard";
 import { useQueueStore, addQueue } from "../stores/useQueueStore";
 
 export const MainApp: React.FC = () => {
@@ -11,8 +11,8 @@ export const MainApp: React.FC = () => {
 
     return (
     <View style={styles.container}>
-            <SongCard isActive={true}>
-                </SongCard>
+            <TempSongCard isActive={true}>
+                </TempSongCard>
     </View>
     )
 };
