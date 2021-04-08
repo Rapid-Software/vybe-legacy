@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { TempSongCard, QueueContext, QueueSongInfo } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
+import { StyleSheet, View } from "react-native";
 
 const renderNextCard = () => {
 
@@ -35,6 +36,13 @@ export const Swipe: React.FC = () => {
         disableBottomSwipe
         onSwipedRight={(index)=>onSwipeRight(index)}
         onSwipedLeft={(index)=>onSwipeLeft(index)}
+        backgroundColor={"transparent"}
         />
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        
+    }
+});
