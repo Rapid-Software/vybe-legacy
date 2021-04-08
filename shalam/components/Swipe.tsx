@@ -16,7 +16,7 @@ const onSwipeLeft = (index: number) => {
 }
 
 export const Swipe: React.FC = () => {
-    const { list } = useContext(QueueContext); 
+    const { list, curLink } = useContext(QueueContext); 
     const [index, setIndex] = useState(0);
 
     const onSwipe = () => {
@@ -27,9 +27,12 @@ export const Swipe: React.FC = () => {
         <Swiper
         cards={list}
         cardIndex={index}
-        renderCard={(card)=><TempSongCard info={card} />}
+        renderCard={(card)=> {
+        return (
+        <TempSongCard info={card} /> )
+        }}
         onSwiped={onSwipe}
-        stackSize={2}
+        stackSize={1}
         stackScale={10}
         stackSeparation={14}
         disableTopSwipe

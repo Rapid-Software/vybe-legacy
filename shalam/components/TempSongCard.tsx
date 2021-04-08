@@ -25,11 +25,13 @@ export interface TempSongCardProps {
     info: QueueSongInfo
 }
 
-export const QueueContext = React.createContext<{ list: QueueSongInfo[] }>({
-    list: [ testObj, testObj, testObj ]
+export const QueueContext = React.createContext<{ list: QueueSongInfo[], curLink: number[] }>({
+    list: [ testObj, testObj, testObj ],
+    curLink: [0]
 });
 
 export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardProps) => {
+
 
     return (
         <View style={styles.container}>
