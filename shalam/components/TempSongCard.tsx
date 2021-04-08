@@ -25,7 +25,7 @@ export interface TempSongCardProps {
 }
 
 export const QueueContext = React.createContext<{ list: QueueSongInfo[] }>({
-    list: [ testObj ],
+    list: [ testObj, testObj, testObj, testObj, testObj, testObj ],
 });
 
 export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardProps) => {
@@ -43,5 +43,16 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: "center",
         alignSelf: "center",
-    }
+        width: 308,
+        height: 561,
+        top: 90,
+        borderRadius: 10,
+        backgroundColor: "#ffffff"
+    },
+    title: {
+
+    },
+    artist: {
+
+    },
 });
