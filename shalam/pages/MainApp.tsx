@@ -1,12 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useQueueStore, addQueue } from "../stores/useQueueStore";
 import { Swipe } from "../components/Swipe";
 
 export const MainApp: React.FC = () => {
     const navigation = useNavigation();
-    const s = useQueueStore().queue;
 
     return (
     <View style={styles.container}>
@@ -21,14 +19,5 @@ const styles = StyleSheet.create({
         backgroundColor: "#1b1b1d",
         alignItems: "center",
         justifyContent: "center"
-    },
-    activeSong: {
-
-    },
-    leftSong: {
-
-    },
-    rightSong: {
-        
     }
 });
