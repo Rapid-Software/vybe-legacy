@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Text, StyleSheet, View, ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { CardPlayer } from "./CardPlayer";
 
 export interface QueueSongInfo {
     songName: string,
@@ -25,7 +26,7 @@ export interface TempSongCardProps {
 }
 
 export const QueueContext = React.createContext<{ list: QueueSongInfo[] }>({
-    list: [ testObj, testObj, testObj ],
+    list: [ testObj, testObj, testObj ]
 });
 
 export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardProps) => {
@@ -39,6 +40,7 @@ export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardPro
             <Text style={styles.artist}>
                 {props.info.artist}
             </Text>
+            <CardPlayer playbackUrl={props.info.playbackUrl} />
             </ImageBackground>
             </View>
     )
