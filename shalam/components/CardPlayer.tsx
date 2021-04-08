@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
-import {  } from "react-native-paper";
-
+import { ProgressBar } from "react-native-paper";
+import Sound from "react-native-sound";
 
 export interface CardPlayerProps { 
     playbackUrl: string
 };
 
 export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) => {
-    const [ sec, SetSec ] = useState(0);
+    const [ sec, setSec ] = useState(0);
+    const [ prog, setProg ] = useState(0.0);
+    const [ sound, setSound ] = useState(null);
+    
+    useEffect(() => {
+
+    });
 
     return (
-        <>
-        </>
+        <ProgressBar progress={prog} />
     )
 };
 
