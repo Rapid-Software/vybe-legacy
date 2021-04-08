@@ -18,7 +18,7 @@ const testObj: QueueSongInfo = {
     pid: "some id",
     image: "https://cdn.discordapp.com/attachments/788969795697508373/829726171078852659/maxresdefault.png",
     artist: "Pooh Shiesty (feat. Lil Durk)",
-    playbackUrl: "some url"
+    playbackUrl: "https://p.scdn.co/mp3-preview/355965ad5f2d2911a357c40bd81c1080d0a7db7c?cid=774b29d4f13844c495f206cafdad9c86"
 }
 
 export interface TempSongCardProps {
