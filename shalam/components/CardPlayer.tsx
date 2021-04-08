@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Alert, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { ProgressBar } from "react-native-paper";
 import { Audio } from "expo-av";
 import { QueueContext } from "./TempSongCard";
