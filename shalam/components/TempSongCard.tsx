@@ -21,6 +21,11 @@ const testObj: QueueSongInfo = {
     playbackUrl: "https://p.scdn.co/mp3-preview/355965ad5f2d2911a357c40bd81c1080d0a7db7c?cid=774b29d4f13844c495f206cafdad9c86"
 }
 
+export const clearSoundObjList = () => {
+    const { list, soundObjList } = useContext(QueueContext);
+    while (soundObjList.length > 0) soundObjList.pop(); // empty array
+};
+
 export interface TempSongCardProps {
     info: QueueSongInfo,
 }

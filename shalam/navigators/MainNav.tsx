@@ -38,7 +38,8 @@ export const MainNav = (t: MainNavParams) => {
             <MainWsHandlerPrv>
             <Stack.Navigator
                 screenOptions={{
-                    headerShown: false
+                    headerShown: false,
+                    gestureEnabled: false
                 }}>
 
                 <Stack.Screen name={"TestPage" as never} component={TestPage} />
