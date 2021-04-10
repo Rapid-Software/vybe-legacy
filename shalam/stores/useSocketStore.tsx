@@ -13,6 +13,10 @@ export const useSocketStore = () => {
             conn.addListener<any>("heartbeat_ack", () => {
                 //conn.send("heartbeat_ack", {});
                 //Alert.alert("ack", "ack");
+            }),
+
+            conn.addListener<any>("get_new_songs_done", () => {
+
             })
         ];
 
