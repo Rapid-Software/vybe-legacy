@@ -15,7 +15,7 @@ export const useSocketStore = () => {
                 //Alert.alert("ack", "ack");
             }),
 
-            conn.addListener<any>("get_new_songs_done", () => {
+            conn.addListener<any>("get_new_songs_done", ( { songs } ) => {
 
             })
         ];
