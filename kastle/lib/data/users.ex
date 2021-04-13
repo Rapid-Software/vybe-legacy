@@ -12,6 +12,7 @@ defmodule Data.Users do
     defdelegate get_spotify_rt(id), to: Data.Access.Users
 
     defdelegate tokens_to_user(token), to: Data.Access.Users
+    defdelegate username_to_user(username), to: Data.Access.Users
     # Mutation Functions
     defdelegate edit_spotify_at(id, t), to: Data.Mutations.Users
     defdelegate edit_spotify_rt(id, t), to: Data.Mutations.Users

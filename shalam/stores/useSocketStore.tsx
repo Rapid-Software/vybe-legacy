@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { WSContext } from "../components/WebSocketProvider";
+import { QueueSongInfo, QueueContext } from "../components/TempSongCard";
+
 
 
 export const useSocketStore = () => {
@@ -15,7 +17,16 @@ export const useSocketStore = () => {
                 //Alert.alert("ack", "ack");
             }),
 
-            conn.addListener<any>("get_new_songs_done", () => {
+            conn.addListener<any>("get_new_songs_done", ( { songs } ) => {
+                songs.forEach((x: QueueSongInfo) => { // implement
+                    const { list, soundObjList } = useContext(QueueContext);
+                    list.push(x);
+                });
+            }), // finish these socket listeners
+            conn.addListener<any>("get_user_profile_done", ( { profile } ) => {
+                
+            }),
+            conn.addListener<any>("get_user_wrapped_done", ( { data } ) => {
 
             })
         ];

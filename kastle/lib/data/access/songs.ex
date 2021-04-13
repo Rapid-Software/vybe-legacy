@@ -35,4 +35,8 @@ defmodule Data.Access.Songs do
       |> Repo.all()}
   end
 
+  def find_songs_between(id, start, finish) do
+    {:ok, nil}
+  end
+
 end
