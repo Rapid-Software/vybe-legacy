@@ -18,8 +18,8 @@ export const ProfileContext = React.createContext<{ user: ProfileInfo }>({
 export const useCurrentProfile = () => {
     const { user } = useContext(ProfileContext);
 
-    
-
+    if (user === NullProfile) return null;
+        else return user;
 };
 
 export const setCurrentProfile = (u: ProfileInfo) => {
