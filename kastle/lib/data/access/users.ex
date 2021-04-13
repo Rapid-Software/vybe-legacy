@@ -27,12 +27,11 @@ defmodule Data.Access.Users do
       |> Repo.one()}
   end
 
-  def username_to_user(username) do # add field username
+  def username_to_user(username) do
     {:ok, t =
       from(u in User,
       where:
-      u.uid == ^username, # chnage to new field
-      #u.username == ^username,
+      u.username == ^username,
       limit: 1
       )
       |> Repo.one()}
