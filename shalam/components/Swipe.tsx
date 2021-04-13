@@ -2,17 +2,17 @@ import React, { useState, useContext, useEffect } from "react";
 import { TempSongCard, QueueContext } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
 import { StyleSheet } from "react-native";
+import { WSContext } from "./WebSocketProvider";
 
 const onSwipeRight = (index: number) => {
-
+    const { conn } = useContext(WSContext);
+    
 }
 
 const onSwipeLeft = (index: number) => {
+    const { conn } = useContext(WSContext);
 
 }
-
-// when swmpied index + 1
-
 
 export const Swipe: React.FC = () => {
     const { list, soundObjList } = useContext(QueueContext); 
