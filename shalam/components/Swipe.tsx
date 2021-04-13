@@ -4,19 +4,18 @@ import Swiper from "react-native-deck-swiper";
 import { StyleSheet } from "react-native";
 import { WSContext } from "./WebSocketProvider";
 
-const onSwipeRight = (index: number) => {
-    const { conn } = useContext(WSContext);
-    
-}
-
-const onSwipeLeft = (index: number) => {
-    const { conn } = useContext(WSContext);
-
-}
-
 export const Swipe: React.FC = () => {
     const { list, soundObjList } = useContext(QueueContext); 
     const [index, setIndex] = useState(0);
+    const { conn } = useContext(WSContext);
+
+    const onSwipeRight = (index: number) => {
+        
+    }
+    
+    const onSwipeLeft = (index: number) => {
+    
+    }
 
     const onSwipe = () => {
         const s = soundObjList[index];
