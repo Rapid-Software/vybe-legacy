@@ -31,7 +31,8 @@ defmodule Data.Access.Users do
     {:ok, t =
       from(u in User,
       where:
-      u.uid == ^id, # chnage to new field
+      u.uid == ^username, # chnage to new field
+      #u.username == ^username,
       limit: 1
       )
       |> Repo.one()}
