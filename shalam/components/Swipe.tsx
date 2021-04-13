@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { TempSongCard, QueueContext } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
 import { StyleSheet } from "react-native";
@@ -11,13 +11,17 @@ const onSwipeLeft = (index: number) => {
 
 }
 
+// when swmpied index + 1
+
+
 export const Swipe: React.FC = () => {
     const { list, soundObjList } = useContext(QueueContext); 
     const [index, setIndex] = useState(0);
 
     const onSwipe = () => {
         const s = soundObjList[index];
-        s.sound.unloadAsync();
+
+        if (s) s.sound.unloadAsync();
         setIndex(index + 1);
     }    
 
