@@ -112,6 +112,20 @@ defmodule Handler.SocketHandler do
         {:reply, make_socket_msg(%{"op" => "get_new_songs_done", "d" => %{}}), state}
     end
 
+    def handler("get_user_profile", %{"username" => uname}, state) do # finish
+        {:ok, u} = Data.Access.Users.username_to_user(uname)
+        
+    end
+
+    def handler("get_user_profile", %{"id" => id}, state) do # finish
+        {:ok, u} = Data.Access.Users.find_by_uid(id)
+
+    end
+
+    def handler("get_user_wrapped", %{"id" => id}, state) do # finish
+    
+    end
+
     def make_socket_msg(data) do # convert to binary later??
         {:text, data
         |> Poison.encode!()}

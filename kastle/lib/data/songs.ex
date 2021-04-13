@@ -4,7 +4,9 @@ defmodule Data.Songs do
     defdelegate find_by_sid(sid), to: Data.Access.Songs
     defdelegate find_by_pid(type, pid), to: Data.Access.Songs
 
-    defdelegate find_by_type(type), to: Data.Access.Songs #Type: Spotify/Sc/Apple
+    defdelegate find_by_type(type), to: Data.Access.Songs #Type: Spotify/Sc/Appled
+
+    defdelegate find_songs_between(id, start, finish), to: Data.Access.Songs
     # Mutation Functions
     defdelegate add_song(type, id, name, artist), to: Data.Mutations.Songs
 

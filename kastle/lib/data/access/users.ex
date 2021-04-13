@@ -27,6 +27,16 @@ defmodule Data.Access.Users do
       |> Repo.one()}
   end
 
+  def username_to_user(username) do # add field username
+    {:ok, t =
+      from(u in User,
+      where:
+      u.uid == ^id, # chnage to new field
+      limit: 1
+      )
+      |> Repo.one()}
+  end
+
   def find_by_spotify_id(spotify_id) do
     {:ok, t =
       from(u in User,
