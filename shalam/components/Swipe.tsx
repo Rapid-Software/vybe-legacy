@@ -10,11 +10,11 @@ export const Swipe: React.FC = () => {
     const { conn } = useContext(WSContext);
 
     const onSwipeRight = (index: number) => {
-        
+        conn?.send("like_song", {});
     }
     
     const onSwipeLeft = (index: number) => {
-    
+        conn?.send("reject_song", {});
     }
 
     const onSwipe = () => {
