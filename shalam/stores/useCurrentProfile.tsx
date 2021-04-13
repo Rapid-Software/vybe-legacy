@@ -36,5 +36,12 @@ export const setCurrentProfile = (u: ProfileInfo) => {
 };
 
 export const clearCurrentProfile = () => {
+    const { user } = useContext(ProfileContext);
 
+    user.username = NullProfile.username;
+    user.description = NullProfile.description;
+    user.followers = NullProfile.followers;
+    user.following = NullProfile.following;
+    user.profilePicture = NullProfile.profilePicture;
+    user.likedSongs = NullProfile.likedSongs;
 }
