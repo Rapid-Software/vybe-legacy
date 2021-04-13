@@ -21,3 +21,12 @@ export const useCurrentProfile = () => {
     
 
 };
+
+export const setCurrentProfile = (u: ProfileInfo) => {
+    const { user } = useContext(ProfileContext);
+
+    if (!u) return;
+
+    
+
+};
