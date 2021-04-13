@@ -27,6 +27,11 @@ export const setCurrentProfile = (u: ProfileInfo) => {
 
     if (!u) return;
 
-    
-
+    user.username = u.username;
+    user.description = u.description;
+    user.followers = u.followers;
+    user.following = u.following;
+    user.profilePicture = u.profilePicture;
+    user.likedSongs = u.likedSongs;
 };
+
