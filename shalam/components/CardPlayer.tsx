@@ -11,7 +11,8 @@ export interface CardPlayerProps {
 export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) => {
     const [ prog, setProg ] = useState(0);
     const [ sound, setSound ] = useState<any | null>(null); // expo-av sucks ass
-    
+    const [ index, setIndex ] = useState<number | null>(null);
+
     const { list, soundObjList } = useContext(QueueContext);
 
     useEffect(() => {
@@ -22,15 +23,15 @@ export const CardPlayer: React.FC<CardPlayerProps> = (props: CardPlayerProps) =>
     const getSound = async(uri: string) => {
          const s = await Audio.Sound.createAsync(
             { uri },
-            { shouldPlay: true, isLooping: true }
+            { shouldPlay: false, isLooping: true }
         );
-
         setSound(s);
-        soundObjList.push(s);
+        setIndex(soundObjList.push(s));
     };
 
     useEffect(() => {
-        if (sound) {
+        if (index) {
+            sound.sound.playAsync();
             const handle = setInterval(() => {
                 setProg( prog + 1)
                 if (prog > 28) setProg(0.5);
