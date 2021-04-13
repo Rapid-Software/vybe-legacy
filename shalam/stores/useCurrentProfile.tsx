@@ -4,8 +4,8 @@ import { QueueSongInfo } from "../components/TempSongCard"
 
 export const NullProfile : ProfileInfo = {
     username: "",
-    followers: 0,
-    following: 0,
+    followers: -1,
+    following: -1,
     description: "",
     likedSongs: [],
     profilePicture: ""
@@ -35,3 +35,6 @@ export const setCurrentProfile = (u: ProfileInfo) => {
     user.likedSongs = u.likedSongs;
 };
 
+export const clearCurrentProfile = () => {
+
+}
