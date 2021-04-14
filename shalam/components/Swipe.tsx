@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { TempSongCard, QueueContext } from "../components/TempSongCard";
+import { TempSongCard, QueueContext, QueueSongInfo } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
 import { StyleSheet } from "react-native";
 import { WSContext } from "./WebSocketProvider";
@@ -10,11 +10,31 @@ export const Swipe: React.FC = () => {
     const { conn } = useContext(WSContext);
 
     const onSwipeRight = (index: number) => {
-        conn?.send("like_song", {});
+        const cur: QueueSongInfo = list[index];
+        let d = {
+            sid: null,
+            pid: cur.pid,
+            type: cur.platform,
+            artist: cur.artist,
+            name: cur.songName,
+            image: cur.image,
+            playbackurl: cur.playbackUrl
+        }
+        conn?.send("like_song", d);
     }
     
     const onSwipeLeft = (index: number) => {
-        conn?.send("reject_song", {});
+        const cur: QueueSongInfo = list[index];
+        let d = {
+            sid: null,
+            pid: cur.pid,
+            type: cur.platform,
+            artist: cur.artist,
+            name: cur.songName,
+            image: cur.image,
+            playbackurl: cur.playbackUrl
+        }
+        conn?.send("reject_song", d);
     }
 
     const onSwipe = () => {
