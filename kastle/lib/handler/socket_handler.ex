@@ -128,6 +128,7 @@ defmodule Handler.SocketHandler do
 
     def handler("like_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl}, state) do
         IO.puts(name)
+        {:reply, make_socket_msg(%{"op" => "heartbeat_ack", "d" => %{}}), state}
     end
 
     def handler("reject_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl}, state) do
