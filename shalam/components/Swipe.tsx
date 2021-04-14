@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { TempSongCard, QueueContext, QueueSongInfo } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { WSContext } from "./WebSocketProvider";
+import { SwipeOverlay } from "./SwipeOverlay";
 
 export const Swipe: React.FC = () => {
     const { list, soundObjList } = useContext(QueueContext); 
@@ -62,12 +63,37 @@ export const Swipe: React.FC = () => {
         onSwipedRight={(index)=>onSwipeRight(index)}
         onSwipedLeft={(index)=>onSwipeLeft(index)}
         backgroundColor={"transparent"}
+        overlayLabels={{
+            left: {
+                title: "TRASH",
+                element: <SwipeOverlay color={"#ffffff"} label={"TRASH"} />,
+                style: {
+                    wrapper: {
+                        marginRight: 30
+                    }
+                },
+            right: {
+                title: "FIRE",
+                element: <Text>🔥</Text>,
+                style: {
+                    wrapper: {
+                        marginLeft: 30
+                    }
+                  }
+                }
+            }
+        }}
+
         />
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        
+    },
+    overlay: {
+        textAlignVertical: "top",
         
     }
 });
