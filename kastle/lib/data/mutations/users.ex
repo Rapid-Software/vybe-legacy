@@ -42,27 +42,45 @@ defmodule Data.Mutations.Users do
         end
     end
 
-    def add_liked_song(id, sid, type, pid) do
+    def add_liked_song(id, sid, type, pid, artist, name, image, playbackurl) do
         {_, uid} = Snowflake.next_id()
+
+        if is_nil(sid) do
+            {:ok, song} = Data.Access.Songs.find_by_pid(type, pid)
+            sid = song.sid
+        end
 
         {:ok, t} = %LikedSong{
             uqid: uid,
             uid: id,
             sid: sid,
             type: type,
-            pid: pid
+            pid: pid,
+            artist: artist,
+            name: name,
+            image: image,
+            playbackurl: playbackurl
         } |> Repo.insert()
     end
 
-    def add_rejected_song(id, sid, type, pid) do
+    def add_rejected_song(id, sid, type, pid, artist, name, image, playbackurl) do
         {_, uid} = Snowflake.next_id()
+
+        if is_nil(sid) do
+            {:ok, song} = Data.Access.Songs.find_by_pid(type, pid)
+            sid = song.sid
+        end
 
         {:ok, t} = %RejectedSong{
             uqid: uid,
             uid: id,
             sid: sid,
             type: type,
-            pid: pid
+            pid: pid,
+            artist: artist,
+            name: name,
+            image: image,
+            playbackurl: playbackurl
         } |> Repo.insert()
     end
 

@@ -9,6 +9,8 @@ defmodule Data.Schemas.Song do
         field :pid, :string
         field :name, :string
         field :artist, :string
+        field :image, :string
+        field :playbackurl, :string
     end
 
     def edit_changeset_w(song, data, fields) do
