@@ -126,12 +126,12 @@ defmodule Handler.SocketHandler do
 
     end
 
-    def handler("like_song", %{}, state) do
-
+    def handler("like_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl}, state) do
+        IO.puts(name)
     end
 
-    def handler("reject_song", %{}, state) do
-
+    def handler("reject_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl}, state) do
+        IO.puts(name)
     end
 
     def make_socket_msg(data) do # convert to binary later??
