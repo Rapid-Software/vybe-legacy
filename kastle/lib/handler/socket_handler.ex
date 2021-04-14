@@ -128,11 +128,12 @@ defmodule Handler.SocketHandler do
 
     def handler("like_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl}, state) do
         IO.puts(name)
-        {:reply, make_socket_msg(%{"op" => "heartbeat_ack", "d" => %{}}), state}
+        {:reply, make_socket_msg(%{"op" => "liked_song", "d" => %{}}), state}
     end
 
     def handler("reject_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl}, state) do
         IO.puts(name)
+        {:reply, make_socket_msg(%{"op" => "rejected_song", "d" => %{}}), state}
     end
 
     def make_socket_msg(data) do # convert to binary later??
