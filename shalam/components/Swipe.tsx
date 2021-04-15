@@ -38,6 +38,10 @@ export const Swipe: React.FC = () => {
     }
 
     const onSwipe = () => {
+
+        if ( (list.length - index) < 5 )
+            conn?.send("get_new_songs", {});
+
         const s = soundObjList[index];
 
         if (s) s.sound.unloadAsync();
