@@ -3,7 +3,6 @@ import { TempSongCard, QueueContext, QueueSongInfo } from "../components/TempSon
 import Swiper from "react-native-deck-swiper";
 import { StyleSheet, Text } from "react-native";
 import { WSContext } from "./WebSocketProvider";
-import { SwipeOverlay } from "./SwipeOverlay";
 
 export const Swipe: React.FC = () => {
     const { list, soundObjList } = useContext(QueueContext); 
@@ -65,23 +64,43 @@ export const Swipe: React.FC = () => {
         backgroundColor={"transparent"}
         overlayLabels={{
             left: {
-                title: "TRASH",
-                element: <SwipeOverlay color={"#ffffff"} label={"TRASH"} />,
+                element: <Text style={{fontSize: 30}}>🗑️</Text>, /* Optional */
+                title: 'NOPE',
                 style: {
-                    wrapper: {
-                        marginRight: 30
-                    }
-                },
-            right: {
-                title: "FIRE",
-                element: <Text>🔥</Text>,
-                style: {
-                    wrapper: {
-                        marginLeft: 30
-                    }
+                  label: {
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
+                    borderWidth: 1
+                  },
+                  wrapper: {
+                    flexDirection: 'column',
+                    alignItems: 'flex-end',
+                    justifyContent: 'flex-start',
+                    top: 125,
+                    left: -30
                   }
                 }
-            }
+              },
+              right: {
+                element: <Text style={{fontSize: 30}}>🔥</Text>, /* Optional */
+                title: 'LIKE',
+                style: {
+                  label: {
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
+                    borderWidth: 1,
+                  },
+                  wrapper: {
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
+                    top: 125,
+                    left: 30,
+                  }
+                }
+              },
         }}
 
         />
@@ -92,8 +111,4 @@ const styles = StyleSheet.create({
     container: {
         
     },
-    overlay: {
-        textAlignVertical: "top",
-        
-    }
 });
