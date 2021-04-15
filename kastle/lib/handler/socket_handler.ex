@@ -126,19 +126,19 @@ defmodule Handler.SocketHandler do
 
     end
 
-    def handler("follow_user", %{}, state) do
+    def handler("follow_user", %{"username" => uname}, state) do
 
     end
 
-    def handler("unfollow_user", %{}, state) do
+    def handler("unfollow_user", %{"username" => uname}, state) do
 
     end
 
-    def handler("get_following", %{}, state) do
+    def handler("get_following", %{"username" => uname}, state) do
 
     end
 
-    def handler("get_followers", %{}, state) do
+    def handler("get_followers", %{"username" => uname}, state) do
 
     end
 
