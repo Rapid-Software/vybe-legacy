@@ -126,6 +126,22 @@ defmodule Handler.SocketHandler do
 
     end
 
+    def handler("follow_user", %{}, state) do
+
+    end
+
+    def handler("unfollow_user", %{}, state) do
+
+    end
+
+    def handler("get_following", %{}, state) do
+
+    end
+
+    def handler("get_followers", %{}, state) do
+
+    end
+
     def handler("like_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl}, state) do
         IO.puts(name)
         {:reply, make_socket_msg(%{"op" => "liked_song", "d" => %{}}), state}
