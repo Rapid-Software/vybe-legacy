@@ -104,7 +104,6 @@ defmodule Handler.SocketHandler do
     end
 
     def handler("heartbeat", %{}, state) do
-        IO.puts("bruh")
         {:reply, make_socket_msg(%{"op" => "heartbeat_ack", "d" => %{}}), state}
     end
 
