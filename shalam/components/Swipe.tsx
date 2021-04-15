@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { TempSongCard, QueueContext, QueueSongInfo } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { WSContext } from "./WebSocketProvider";
 
 export const Swipe: React.FC = () => {
@@ -62,6 +62,47 @@ export const Swipe: React.FC = () => {
         onSwipedRight={(index)=>onSwipeRight(index)}
         onSwipedLeft={(index)=>onSwipeLeft(index)}
         backgroundColor={"transparent"}
+        overlayLabels={{
+            left: {
+                element: <Text style={{fontSize: 30}}>🗑️</Text>, /* Optional */
+                title: 'NOPE',
+                style: {
+                  label: {
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
+                    borderWidth: 1
+                  },
+                  wrapper: {
+                    flexDirection: 'column',
+                    alignItems: 'flex-end',
+                    justifyContent: 'flex-start',
+                    top: 125,
+                    left: -30
+                  }
+                }
+              },
+              right: {
+                element: <Text style={{fontSize: 30}}>🔥</Text>, /* Optional */
+                title: 'LIKE',
+                style: {
+                  label: {
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
+                    borderWidth: 1,
+                  },
+                  wrapper: {
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
+                    top: 125,
+                    left: 30,
+                  }
+                }
+              },
+        }}
+
         />
     );
 }
@@ -69,5 +110,5 @@ export const Swipe: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         
-    }
+    },
 });
