@@ -1,13 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import { TempSongCard, QueueContext, QueueSongInfo } from "../components/TempSongCard";
 import Swiper from "react-native-deck-swiper";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, Alert } from "react-native";
 import { WSContext } from "./WebSocketProvider";
 
 export const Swipe: React.FC = () => {
     const { list, soundObjList } = useContext(QueueContext); 
     const [index, setIndex] = useState(0);
     const { conn } = useContext(WSContext);
+    const [ isAvail, setAvail ] = useState(false);
+    let h: NodeJS.Timeout;
 
     const onSwipeRight = (index: number) => {
         const cur: QueueSongInfo = list[index];
@@ -44,16 +46,27 @@ export const Swipe: React.FC = () => {
 
         const s = soundObjList[index];
 
-        if (s) s.sound.unloadAsync();
+        if (s) s.sound.stopAsync();
         setIndex(index + 1);
     }    
+
+    useEffect(() => {
+        setAvail(false);
+        let h = setTimeout(() => {
+            if (!soundObjList[index]) setAvail(false);
+                else {
+                    setAvail(true);
+                    clearInterval(h);
+                }
+        }, 500)
+    
+    }, [index]);
 
     return (
         <Swiper
         cards={list}
         cardIndex={index}
         renderCard={(card, cardIndex)=> {
-
         return (
         <TempSongCard info={card} /> )
         }}
@@ -63,6 +76,10 @@ export const Swipe: React.FC = () => {
         stackSeparation={14}
         disableTopSwipe
         disableBottomSwipe
+
+        disableLeftSwipe={isAvail ? false : true}
+        disableRightSwipe={isAvail ? false : true}
+
         onSwipedRight={(index)=>onSwipeRight(index)}
         onSwipedLeft={(index)=>onSwipeLeft(index)}
         backgroundColor={"transparent"}
