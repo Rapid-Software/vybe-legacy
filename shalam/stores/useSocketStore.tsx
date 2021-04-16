@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { WSContext } from "../components/WebSocketProvider";
 import { QueueSongInfo, QueueContext } from "../components/TempSongCard";
+import { Alert } from "react-native";
 
 
 
@@ -18,8 +19,10 @@ export const useSocketStore = () => {
             }),
 
             conn.addListener<any>("get_new_songs_done", ( { songs } ) => {
+                Alert.alert("a", "d");
                 songs.forEach((x: QueueSongInfo) => { // implement
                     const { list, soundObjList } = useContext(QueueContext);
+                    Alert.alert("song", x.songName);
                     list.push(x);
                 });
             }), // finish these socket listeners
