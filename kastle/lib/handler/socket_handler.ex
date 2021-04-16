@@ -108,8 +108,8 @@ defmodule Handler.SocketHandler do
     end
 
     def handler("get_new_songs", %{}, state) do
-        songs = %{
-           "key" => %{
+        songs = {
+           %{
               "songName" => "Bruh Random Song",
               "platform" => "spotify",
               "pid" => "some rando id",
