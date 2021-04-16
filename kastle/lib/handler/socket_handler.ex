@@ -109,14 +109,15 @@ defmodule Handler.SocketHandler do
 
     def handler("get_new_songs", %{}, state) do
         songs = %{
-           %{
+           "key" => %{
               "songName" => "Bruh Random Song",
               "platform" => "spotify",
               "pid" => "some rando id",
               "image" => "https://i.scdn.co/image/ab67616d0000b273e1f2015c50b29afa49f5c296",
               "artist" => "Bruh Man",
               "playbackUrl" => "https://p.scdn.co/mp3-preview/a18df55248609b3165d63e145fc75ad5c309be09?cid=774b29d4f13844c495f206cafdad9c86"
-           }
+           },
+
         }
         {:reply, make_socket_msg(%{"op" => "get_new_songs_done", "d" => songs}), state}
     end
