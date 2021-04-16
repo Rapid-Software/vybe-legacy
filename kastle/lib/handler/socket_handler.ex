@@ -164,8 +164,6 @@ defmodule Handler.SocketHandler do
     end
 
     def make_socket_msg(data) do # convert to binary later??
-        IO.puts(data |> Poison.encode!())
-
         {:text, data
         |> Poison.encode!()}
     end
