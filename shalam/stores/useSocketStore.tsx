@@ -19,7 +19,7 @@ export const useSocketStore = () => {
             }),
 
             conn.addListener<any>("get_new_songs_done", ( { songs } ) => {
-                Alert.alert("a", "d");
+                Alert.alert("a", songs[0].songName);
                 songs.forEach((x: QueueSongInfo) => { // implement
                     const { list, soundObjList } = useContext(QueueContext);
                     Alert.alert("song", x.songName);
