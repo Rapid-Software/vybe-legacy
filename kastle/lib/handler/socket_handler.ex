@@ -110,12 +110,12 @@ defmodule Handler.SocketHandler do
     def handler("get_new_songs", %{}, state) do
         songs = %{ "songs" => [
             %{
-                "songName" => "CONVERSATIONS",
+                "songName" => "Burning Bridges",
                 "platform" => "spotify",
                 "pid" => "some rando id",
-                "image" => "https://i.scdn.co/image/ab67616d0000b273084b6ef9c7a79e9a9ca2fd9d",
-                "artist" => "Aries",
-                "playbackUrl" => "https://p.scdn.co/mp3-preview/593d38152b086c98feb75e71103795510dcff4e2?cid=774b29d4f13844c495f206cafdad9c86"
+                "image" => "https://i.scdn.co/image/ab67616d0000b273e1f2015c50b29afa49f5c296",
+                "artist" => "Quadeca (ft. IDK)",
+                "playbackUrl" => "https://p.scdn.co/mp3-preview/39c3bdc88f5d3044f9238245b3493cf1d2284aca?cid=774b29d4f13844c495f206cafdad9c86"
             },
             %{
                 "songName" => "It's All A Game",
