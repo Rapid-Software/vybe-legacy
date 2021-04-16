@@ -20,11 +20,8 @@ export const useSocketStore = () => {
             }),
 
             conn.addListener<any>("get_new_songs_done", ( { songs } ) => {
-                
                 songs.map((x: QueueSongInfo) => {
-                    Alert.alert("s", x.songName);
                     list.push(x);
-                    Alert.alert("z")
                 });
             }), // finish these socket listeners
             conn.addListener<any>("get_user_profile_done", ( { profile } ) => {
