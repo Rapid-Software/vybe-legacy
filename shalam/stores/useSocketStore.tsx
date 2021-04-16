@@ -7,7 +7,8 @@ import { Alert } from "react-native";
 
 export const useSocketStore = () => {
     const { conn } = useContext(WSContext);
-    
+    const { list, soundObjList } = useContext(QueueContext);
+
     useEffect(() => {
         if (!conn)
             return;
@@ -19,11 +20,11 @@ export const useSocketStore = () => {
             }),
 
             conn.addListener<any>("get_new_songs_done", ( { songs } ) => {
-                Alert.alert("a", songs[0].songName);
-                songs.forEach((x: QueueSongInfo) => { // implement
-                    const { list, soundObjList } = useContext(QueueContext);
-                    Alert.alert("song", x.songName);
+                
+                songs.map((x: QueueSongInfo) => {
+                    Alert.alert("s", x.songName);
                     list.push(x);
+                    Alert.alert("z")
                 });
             }), // finish these socket listeners
             conn.addListener<any>("get_user_profile_done", ( { profile } ) => {
