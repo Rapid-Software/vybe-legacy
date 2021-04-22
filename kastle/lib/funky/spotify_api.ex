@@ -9,7 +9,7 @@ defmodule Spotty do
   end
 
   def get_client_id() do
-    Application.get_env(:spotify_ex)[:client_id]
+    System.get_env("SPOTIFY_CLIENT_ID") # change to config var soon
   end
 
   def verify_access_token() do
