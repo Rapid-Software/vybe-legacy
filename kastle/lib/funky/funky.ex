@@ -10,7 +10,7 @@ defmodule Funky do
 
   def get_random_hip_hop_song(limit) do
     creds = "0de489a8-ba81-423f-b1c3-847508a4f85e" |> create_spotify_connection()
-    {:ok, r} = creds |> Spotify.get_recommendations(market: "US", limit: limit, seed_genres: "hip-hop")
+    {:ok, r} = creds |> Spotify.Recommendation.get_recommendations(market: "US", limit: limit, seed_genres: "hip-hop")
     IO.inspect(r)
   end
 
