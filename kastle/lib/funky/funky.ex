@@ -35,7 +35,7 @@ defmodule Funky do
       "grant_type" => "refresh_token",
       "refresh_token" => creds.refresh_token
     })
-
+    IO.inspect(body)
     r = Spotty.post("https://accounts.spotify.com/api/token", body, headers)
     IO.inspect(r)
   end
