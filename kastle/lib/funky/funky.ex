@@ -27,7 +27,7 @@ defmodule Funky do
   # move to spotty api lib
   def refresh_spotify(uid, creds) do
     headers = [
-      {"Content-Type", "application/json"}
+      {"Content-Type", "application/x-www-form-urlencoded"}
     ]
 
     body = Poison.encode!(%{
