@@ -24,4 +24,20 @@ defmodule Funky do
     Spotify.Credentials.new(u.spotify_at, u.spotify_rt)
   end
 
+  # move to spotty api lib
+  def refresh_spotify(uid, creds) do
+    headers = [
+      {"Content-Type", "application/json"}
+    ]
+
+    body = Poison.encode!(%{
+      "client_id" => Spotty.get_client_id(),
+      "grant_type" => "refresh_token",
+      "refresh_token" => creds.refresh_token
+    })
+
+    r = Spotty.post("https://accounts.spotify.com/api/token", body, headers)
+    IO.inspect(r)
+  end
+
 end
