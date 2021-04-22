@@ -21,7 +21,7 @@ defmodule Funky do
   def create_spotify_connection(token) do
     {:ok, u} = Data.Access.Users.tokens_to_user()
 
-    %Spotify.Credentials{"access_token" => u.spotify_at, "refresh_token" => u.spotify_rt}
+    Spotify.Credentials.new(u.spotify_at, u.spotify_rt)
   end
 
 end
