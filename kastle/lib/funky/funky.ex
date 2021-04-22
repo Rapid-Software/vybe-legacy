@@ -35,8 +35,4 @@ defmodule Funky do
 
   end
 
-  def custom_spotify_post(url, header, body) do
-
-  end
-
 end
