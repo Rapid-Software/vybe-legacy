@@ -12,6 +12,10 @@ defmodule Spotty do
     System.get_env("SPOTIFY_CLIENT_ID") # change to config var soon
   end
 
+  def refresh(id, at, rt) do
+
+  end
+
   def verify_access_token() do
 
   end
