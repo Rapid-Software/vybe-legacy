@@ -24,4 +24,19 @@ defmodule Funky do
     Spotify.Credentials.new(u.spotify_at, u.spotify_rt)
   end
 
+  def refresh_spotify(uid, creds) do
+    headers = [
+      {""}
+    ]
+
+    body = [
+
+    ]
+
+  end
+
+  def custom_spotify_post(url, header, body) do
+
+  end
+
 end
