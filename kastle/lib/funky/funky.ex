@@ -19,7 +19,7 @@ defmodule Funky do
   end
 
   def create_spotify_connection(token) do
-    {:ok, u} = Data.Access.Users.tokens_to_user()
+    {:ok, u} = token |> Data.Access.Users.tokens_to_user()
 
     Spotify.Credentials.new(u.spotify_at, u.spotify_rt)
   end
