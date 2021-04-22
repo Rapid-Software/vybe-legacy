@@ -31,9 +31,9 @@ defmodule Funky do
     ]
 
     body = Poison.encode!(%{
-      "client_id" => Spotty.get_client_id(),
-      "grant_type" => "refresh_token",
-      "refresh_token" => creds.refresh_token
+      client_id: Spotty.get_client_id(),
+      grant_type: "refresh_token",
+      refresh_token: creds.refresh_token
     })
     IO.inspect(body)
     r = Spotty.post("https://accounts.spotify.com/api/token", body, headers)
