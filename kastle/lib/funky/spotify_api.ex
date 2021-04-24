@@ -12,13 +12,18 @@ defmodule Spotty do
     System.get_env("SPOTIFY_CLIENT_ID") # change to config var soon
   end
 
+  def get_client_secret() do
+    System.get_env("SPOTIFY_SECRET")
+  end
+
   def refresh_post(url, refresh_token) do
     headers = [
       {"Content-Type", "application/x-www-form-urlencoded"}
     ]
 
     client_id = get_client_id()
-    req_body = "grant_type=refresh_token&refresh_token=#{refresh_token}&client_id=#{client_id}"
+    secret = get_client_secret()
+    req_body = "grant_type=refresh_token&refresh_token=#{refresh_token}&client_id=#{client_id}&client_secret=#{secret}"
 
     HTTPoison.post(url, req_body, headers)
   end
