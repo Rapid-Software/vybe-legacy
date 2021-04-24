@@ -17,11 +17,11 @@ defmodule Spotty do
       {"Content-Type", "application/x-www-form-urlencoded"}
     ]
 
-    params = %{
+    params = [
         client_id: get_client_id(),
         grant_type: "refresh_token",
         refresh_token: refresh_token
-    }
+    ]
 
     HTTPoison.post(url, headers: headers, options: params)
   end
