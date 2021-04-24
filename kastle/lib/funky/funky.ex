@@ -43,8 +43,9 @@ defmodule Funky do
           refresh_token: creds.refresh_token
       }
     })
-    IO.inspect(body_test)
-    r = Spotty.post("https://accounts.spotify.com/api/token", body_test, headers)
+
+    #IO.inspect(body_test)
+    r = Spotty.refresh_post("https://accounts.spotify.com/api/token", refresh_token)
     IO.inspect(r)
   end
 
