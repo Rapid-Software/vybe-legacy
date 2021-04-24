@@ -23,7 +23,8 @@ defmodule Spotty do
         {"refresh_token", refresh_token}
     ]
 
-    HTTPoison.post(url, headers: headers, options: params)
+    #HTTPoison.post(url, headers: headers, options: params)
+    HTTPoison.post(url, nil, headers, params)
   end
 
   def refresh(id, at, rt) do
