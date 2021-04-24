@@ -37,7 +37,7 @@ defmodule Funky do
     })
 
     body_test = Poison.encode!(%{
-      body: %{
+      param: %{
           client_id: Spotty.get_client_id(),
           grant_type: "refresh_token",
           refresh_token: creds.refresh_token
