@@ -24,7 +24,7 @@ defmodule Spotty do
     ]
 
     #HTTPoison.post(url, headers: headers, options: params)
-    HTTPoison.post(url, nil, headers, params)
+    HTTPoison.post(url, "", headers, params)
   end
 
   def refresh(id, at, rt) do

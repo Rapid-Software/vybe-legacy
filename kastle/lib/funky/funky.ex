@@ -49,4 +49,13 @@ defmodule Funky do
     IO.inspect(r)
   end
 
+  def test_refresh() do
+    t = "0de489a8-ba81-423f-b1c3-847508a4f85e"
+    {:ok, u} = Data.Access.Users.tokens_to_user(t)
+
+    creds = create_spotify_connection(t)
+
+    refresh_spotify(u.uid, creds)
+  end
+
 end
