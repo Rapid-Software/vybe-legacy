@@ -35,8 +35,16 @@ defmodule Funky do
       grant_type: "refresh_token",
       refresh_token: creds.refresh_token
     })
-    IO.inspect(body)
-    r = Spotty.post("https://accounts.spotify.com/api/token", body, headers)
+
+    body_test = Poison.encode!(%{
+      body: %{
+          client_id: Spotty.get_client_id(),
+          grant_type: "refresh_token",
+          refresh_token: creds.refresh_token
+      }
+    })
+    IO.inspect(body_test)
+    r = Spotty.post("https://accounts.spotify.com/api/token", body_test, headers)
     IO.inspect(r)
   end
 
