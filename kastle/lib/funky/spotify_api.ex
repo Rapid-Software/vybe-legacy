@@ -17,14 +17,10 @@ defmodule Spotty do
       {"Content-Type", "application/x-www-form-urlencoded"}
     ]
 
-    params = [
-        {"client_id", get_client_id()},
-        {"grant_type", "refresh_token"},
-        {"refresh_token", refresh_token}
-    ]
+    client_id = get_client_id()
+    req_body = "{\"client_id\":\"#{client_id}\", \"grant_type\":\"refresh_token\", \"refresh_token\":\"#{refresh_token}\"}"
 
-    #HTTPoison.post(url, headers: headers, options: params)
-    HTTPoison.post(url, "", headers, params)
+    HTTPoison.post(url, req_body, headers)
   end
 
   def refresh(id, at, rt) do
