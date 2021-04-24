@@ -45,7 +45,7 @@ defmodule Funky do
     })
 
     #IO.inspect(body_test)
-    r = Spotty.refresh_post("https://accounts.spotify.com/api/token", refresh_token)
+    r = Spotty.refresh_post("https://accounts.spotify.com/api/token", creds.refresh_token)
     IO.inspect(r)
   end
 
