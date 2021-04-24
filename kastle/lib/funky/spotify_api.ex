@@ -18,7 +18,7 @@ defmodule Spotty do
     ]
 
     client_id = get_client_id()
-    req_body = "grant_type=refresh_token&refresh_token=#{refresh_token}"
+    req_body = "grant_type=refresh_token&refresh_token=#{refresh_token}&client_id=#{client_id}"
 
     HTTPoison.post(url, req_body, headers)
   end
