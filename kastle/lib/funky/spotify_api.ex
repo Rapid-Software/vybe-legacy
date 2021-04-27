@@ -32,8 +32,21 @@ defmodule Spotty do
 
   end
 
-  def verify_access_token() do
+  def verify_access_token(access_token) do
+    headers = [
+      {"Authorization", "Bearer #{access_token}"},
+      {"Content-Type", "application/json"},
+      {"Accept", "application/json"}
+    ]
 
+    r = HTTPoison.get!("https://api.spotify/v1/me", headers)
+    #%{"error" => %{"message" => "The access token expired", "status" => 401}}
+    case r do
+      %{"error" => %{"message" => message, "status" => status} } ->
+        {:invalid, status, message}
+      _ ->
+        {:valid}
+    end
   end
 
 end
