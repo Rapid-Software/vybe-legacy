@@ -45,7 +45,16 @@ defmodule Spotty do
       %{"error" => %{"message" => message, "status" => status} } ->
         {:invalid, status, message}
       _ ->
-        {:valid}
+        {:valid, r["expires_in"]}
+    end
+  end
+
+  def validate_and_update_token(uid, access_token) do
+    case verify_access_token(access_token) do
+      {:valid, expires} ->
+        nil
+      {:invalid, status, message} ->
+        nil
     end
   end
 
