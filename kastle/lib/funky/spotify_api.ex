@@ -45,7 +45,7 @@ defmodule Spotty do
     {:ok, u} = token |> Data.Access.Users.tokens_to_user()
     {:ok, r} = refresh_post("https://accounts.spotify.com/api/token", u.spotify_rt)
 
-    case r["body"] do
+    case r.body do
       %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
         Data.Mutations.Users.update_spotify_user(u.uid, token, refresh_token)
         {:ok, token}
