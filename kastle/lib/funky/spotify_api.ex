@@ -50,8 +50,8 @@ defmodule Spotty do
     IO.inspect(body)
 
     case body do
-      %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
-        Data.Mutations.Users.update_spotify_user(u.uid, token, refresh_token)
+      %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires} ->
+        Data.Mutations.Users.edit_spotify_at(u.uid, token)
         {:ok, token}
       _ ->
         {:error}
