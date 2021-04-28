@@ -25,28 +25,8 @@ defmodule Funky do
   end
 
   # move to spotty api lib
-  def refresh_spotify(uid, creds) do
-    headers = [
-      {"Content-Type", "application/x-www-form-urlencoded"}
-    ]
-
-    body = Poison.encode!(%{
-      client_id: Spotty.get_client_id(),
-      grant_type: "refresh_token",
-      refresh_token: creds.refresh_token
-    })
-
-    body_test = Poison.encode!(%{
-      param: %{
-          client_id: Spotty.get_client_id(),
-          grant_type: "refresh_token",
-          refresh_token: creds.refresh_token
-      }
-    })
-
-    #IO.inspect(body_test)
-    r = Spotty.refresh_post("https://accounts.spotify.com/api/token", creds.refresh_token)
-    IO.inspect(r)
+  def refresh_spotify(creds) do
+    Spotty.refresh_post("https://accounts.spotify.com/api/token", creds.refresh_token)
   end
 
   def test_refresh() do
