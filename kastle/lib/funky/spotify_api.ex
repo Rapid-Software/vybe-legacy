@@ -28,9 +28,28 @@ defmodule Spotty do
     HTTPoison.post(url, req_body, headers)
   end
 
-  # refresh everytime we connect to the websocket
-  def refresh(id, rt) do
+  def refresh_by_id(id) do
+    {:ok, u} = id |> Data.Access.Users.find_by_uid()
+    r = refresh_post("https://accounts.spotify.com/api/token", u.spotify_rt)
 
+    case r.body do
+      %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
+        {:ok} # good refresh
+      _ ->
+        {:error} #error
+    end
+  end
+
+  def refresh_by_token(token) do
+    {:ok, u} = token |> Data.Access.Users.tokens_to_user()
+    r = refresh_post("https://accounts.spotify.com/api/token", u.spotify_rt)
+
+    case r["body"] do
+      %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
+        {:ok} # good refresh
+      _ ->
+        {:error} #error
+    end
   end
 
   def verify_access_token(access_token) do
