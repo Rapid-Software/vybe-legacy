@@ -1,5 +1,5 @@
 <p align="center">
-	  <img src="https://github.com/VybeCreations/Vybe/blob/staging/juust/old_logo.png" alt="Vybe Logo" />
+	  <img src="https://github.com/VybeCreations/Vybe/blob/staging/juust/new_logo_pre_cut.png" alt="Vybe Logo" />
 </p>
 <h1 align="center">
   Vybe - Tinder for Music! 🎵
