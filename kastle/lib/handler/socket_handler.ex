@@ -68,6 +68,9 @@ defmodule Handler.SocketHandler do
                                             {:error, {:already_started, tpid}} -> tpid
                                             _ -> {:reply, {:close, 4999, "internal error"}, state}
                                         end
+
+                                        {:ok, access_token} = Spotty.refresh_by_token(token)
+
                                         {:reply, make_socket_msg(%{"op" => "auth_good", "d" => %{"user_id" => t.uid}}), %{state | user_id: t.uid, gid: pid, awt_init: false}}
                                     _ ->
                                         {:reply, {:close, 4999, "internal error"}, state}

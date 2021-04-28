@@ -34,7 +34,8 @@ defmodule Spotty do
 
     case r.body do
       %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
-        {:ok} # good refresh
+        Data.Mutations.Users.update_spotify_user(u.uid, token, refresh_token)
+        {:ok, token}
       _ ->
         {:error} #error
     end
@@ -46,9 +47,10 @@ defmodule Spotty do
 
     case r["body"] do
       %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
-        {:ok} # good refresh
+        Data.Mutations.Users.update_spotify_user(u.uid, token, refresh_token)
+        {:ok, token}
       _ ->
-        {:error} #error
+        {:error}
     end
   end
 
