@@ -49,7 +49,7 @@ defmodule Spotty do
     IO.puts("\nbreak\n\n")
     IO.inspect(r.body)
 
-    case r.body |> Poison.decode()! do
+    case r.body |> Poison.decode() do
       %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
         Data.Mutations.Users.update_spotify_user(u.uid, token, refresh_token)
         {:ok, token}
