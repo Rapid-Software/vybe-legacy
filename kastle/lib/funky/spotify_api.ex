@@ -28,7 +28,8 @@ defmodule Spotty do
     HTTPoison.post(url, req_body, headers)
   end
 
-  def refresh(id, at, rt) do
+  # refresh everytime we connect to the websocket
+  def refresh(id, rt) do
 
   end
 
