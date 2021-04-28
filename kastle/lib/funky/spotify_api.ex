@@ -60,7 +60,6 @@ defmodule Spotty do
     ]
 
     r = HTTPoison.get!("https://api.spotify/v1/me", headers)
-    #%{"error" => %{"message" => "The access token expired", "status" => 401}}
     case r do
       %{"error" => %{"message" => message, "status" => status} } ->
         {:invalid, status, message}
