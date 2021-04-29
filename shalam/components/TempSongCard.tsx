@@ -21,6 +21,7 @@ export const clearSoundObjList = () => {
 
 export interface TempSongCardProps {
     info: QueueSongInfo,
+    cIndex: number
 }
 
 export const QueueContext = React.createContext<{ list: QueueSongInfo[], soundObjList: any[] }>({
@@ -40,7 +41,7 @@ export const TempSongCard: React.FC<TempSongCardProps> = (props: TempSongCardPro
             <Text style={styles.artist}>
                 {props.info.artist}
             </Text>
-            <CardPlayer playbackUrl={props.info.playbackUrl} />
+            <CardPlayer playbackUrl={props.info.playbackUrl} cIndex={props.cIndex} />
             </ImageBackground>
             </View>
     )
