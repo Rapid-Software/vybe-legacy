@@ -32,12 +32,14 @@ defmodule Spotty do
     {:ok, u} = id |> Data.Access.Users.find_by_uid()
     {:ok, r} = refresh_post("https://accounts.spotify.com/api/token", u.spotify_rt)
 
-    case r["body"] do
+    {:ok, body} = r.body |> Poison.decode()
+
+    case body do
       %{"access_token" => token, "token_type" => type, "scope" => scope, "expires_in" => expires, "refresh_token" => refresh_token} ->
         Data.Mutations.Users.update_spotify_user(u.uid, token, refresh_token)
         {:ok, token}
       _ ->
-        {:error} #error
+        {:error}
     end
   end
 
