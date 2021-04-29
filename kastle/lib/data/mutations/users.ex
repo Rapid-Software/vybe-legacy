@@ -89,7 +89,6 @@ defmodule Data.Mutations.Users do
         from(u in User,
         where:
         u.uid == ^id,
-        limit: 1,
         update:
         [set: [spotify_at: ^t] ]
         ) |> Repo.update_all([]) }
@@ -100,7 +99,6 @@ defmodule Data.Mutations.Users do
             from(u in User,
             where:
             u.uid == ^id,
-            limit: 1,
             update:
             [set: [spotify_rt: ^t] ]
         ) |> Repo.update_all([]) }
@@ -111,7 +109,6 @@ defmodule Data.Mutations.Users do
             from(u in User,
             where:
             u.uid == ^id,
-            limit: 1,
             update:
             [set: [spotify_at: ^at, spotify_rt: ^rt] ]
         ) |> Repo.update_all([]) }
