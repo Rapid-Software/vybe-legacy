@@ -92,7 +92,7 @@ defmodule Data.Mutations.Users do
         limit: 1,
         update:
         [set: [spotify_at: ^t] ]
-        )} |> Repo.one()
+        ) |> Repo.one() }
     end
 
     def edit_spotify_rt(id, t) do
@@ -103,7 +103,7 @@ defmodule Data.Mutations.Users do
             limit: 1,
             update:
             [set: [spotify_rt: ^t] ]
-        )} |> Repo.one()
+        ) |> Repo.one() }
     end
 
     def edit_spotify_tokens(id, at, rt) do
@@ -114,7 +114,7 @@ defmodule Data.Mutations.Users do
             limit: 1,
             update:
             [set: [spotify_at: ^at, spotify_rt: ^rt] ]
-        )} |> Repo.one()
+        ) |> Repo.one() }
     end
 
     def delete(id) do
