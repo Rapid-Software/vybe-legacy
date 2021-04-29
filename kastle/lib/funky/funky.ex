@@ -1,13 +1,10 @@
 defmodule Funky do
 
-  def get_random_spotify_song() do
-
-  end
-
   def get_spotify_suggestion(uid, limit, genres, artists, songs, market) do
     creds = uid |> uid_to_creds()
 
     {:ok, r} = creds |> Spotify.Recommendation.get_recommendations(market: market, limit: limit, seed_genres: genres)
+
 
   end
 
@@ -17,11 +14,15 @@ defmodule Funky do
     IO.inspect(r)
   end
 
-  def convert_spotify_to_song() do
+  def convert_spotify_to_song(track) do
+    # songName, platform, pid, image, artist, playbackUrl
+
 
   end
 
-  def get_lib_songs_test(limit) do
+  def get_lib_songs_test(uid, limit) do
+    rec = get_spotify_suggestion(uid, limit, "hip-hop", "", "", "US")
+
 
   end
 
