@@ -24,18 +24,4 @@ defmodule Funky do
     Spotify.Credentials.new(u.spotify_at, u.spotify_rt)
   end
 
-  # move to spotty api lib
-  def refresh_spotify(creds) do
-    Spotty.refresh_post("https://accounts.spotify.com/api/token", creds.refresh_token)
-  end
-
-  def test_refresh() do
-    t = "0de489a8-ba81-423f-b1c3-847508a4f85e"
-    {:ok, u} = Data.Access.Users.tokens_to_user(t)
-
-    creds = create_spotify_connection(t)
-
-    refresh_spotify(creds)
-  end
-
 end
