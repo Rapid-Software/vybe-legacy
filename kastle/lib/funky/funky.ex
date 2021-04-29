@@ -35,7 +35,7 @@ defmodule Funky do
 
     creds = create_spotify_connection(t)
 
-    refresh_spotify(u.uid, creds)
+    refresh_spotify(creds)
   end
 
 end
