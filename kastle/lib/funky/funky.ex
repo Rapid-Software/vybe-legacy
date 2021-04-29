@@ -4,7 +4,10 @@ defmodule Funky do
 
   end
 
-  def get_spotify_suggestion(limit, genres, artists, songs) do
+  def get_spotify_suggestion(uid, limit, genres, artists, songs, market) do
+    creds = uid |> uid_to_creds()
+
+    {:ok, r} = creds |> Spotify.Recommendation.get_recommendations(market: market, limit: limit, seed_genres: genres)
 
   end
 
@@ -18,8 +21,18 @@ defmodule Funky do
 
   end
 
+  def get_lib_songs_test(limit) do
+
+  end
+
   def create_spotify_connection(token) do
     {:ok, u} = token |> Data.Access.Users.tokens_to_user()
+
+    Spotify.Credentials.new(u.spotify_at, u.spotify_rt)
+  end
+
+  def uid_to_creds(uid) do
+    {:ok, u} = Data.Access.Users.find_by_uid(uid)
 
     Spotify.Credentials.new(u.spotify_at, u.spotify_rt)
   end
