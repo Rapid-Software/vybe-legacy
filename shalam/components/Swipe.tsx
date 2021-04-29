@@ -8,8 +8,6 @@ export const Swipe: React.FC = () => {
     const { list, soundObjList } = useContext(QueueContext); 
     const [index, setIndex] = useState(0);
     const { conn } = useContext(WSContext);
-    const [ isAvail, setAvail ] = useState(false);
-    let h: NodeJS.Timeout;
 
     const onSwipeRight = (index: number) => {
         const cur: QueueSongInfo = list[index];
@@ -40,27 +38,11 @@ export const Swipe: React.FC = () => {
     }
 
     const onSwipe = () => {
-
         if ( (list.length - index) < 5 )
             conn?.send("get_new_songs", {});
-
-        const s = soundObjList[index];
-
-        if (s) s.sound.stopAsync();
-        setIndex(index + 1);
-    }    
-
-    useEffect(() => {
-        setAvail(false);
-        let h = setTimeout(() => {
-            if (!soundObjList[index]) setAvail(false);
-                else {
-                    setAvail(true);
-                    clearInterval(h);
-                }
-        }, 500)
     
-    }, [index]);
+        setIndex(index + 1);
+    }
 
     return (
         <Swiper
@@ -68,7 +50,7 @@ export const Swipe: React.FC = () => {
         cardIndex={index}
         renderCard={(card, cardIndex)=> {
         return (
-        <TempSongCard info={card} /> )
+        <TempSongCard info={card} cIndex={cardIndex} /> )
         }}
         onSwiped={onSwipe}
         stackSize={1}
@@ -76,10 +58,6 @@ export const Swipe: React.FC = () => {
         stackSeparation={14}
         disableTopSwipe
         disableBottomSwipe
-
-        disableLeftSwipe={isAvail ? false : true}
-        disableRightSwipe={isAvail ? false : true}
-
         onSwipedRight={(index)=>onSwipeRight(index)}
         onSwipedLeft={(index)=>onSwipeLeft(index)}
         backgroundColor={"transparent"}
