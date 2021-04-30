@@ -26,13 +26,12 @@ defmodule Funky do
 
   def convert_spotify_to_song(track) do
     # songName, platform, pid, image, artist, playbackUrl
-  # finish function
+    # finish function
 
   end
 
   def get_lib_songs_test(uid, limit) do
     {:ok, rec} = get_spotify_suggestion(uid, limit, "hip-hop", "", "", "US")
-
 
     Enum.map(rec.tracks, fn s ->
       IO.inspect(s)
