@@ -25,18 +25,28 @@ defmodule Funky do
   end
 
   def convert_spotify_to_song(track) do
-    # songName, platform, pid, image, artist, playbackUrl
-    # finish function
-
+    song = %{
+      "songName" => track.name,
+      "platform" => "spotify",
+      "pid" => track.id,
+      "image" => track.album.images[0].url,
+      "artist" => track.album.artists[0].name,
+      "playbackUrl" => track.preview_url
+    }
   end
 
   def get_lib_songs_test(uid, limit) do
     {:ok, rec} = get_spotify_suggestion(uid, limit, "hip-hop", "", "", "US")
 
-    Enum.map(rec.tracks, fn s ->
-      IO.inspect(s)
+    uf_list = Enum.map(rec.tracks, fn s ->
+      s |> convert_spotify_to_song()
     end)
 
+    list = Enum.filter(uf_list, fn u ->
+      u.playbackUrl != nil
+    end)
+
+    IO.inspect(list)
   end
 
 end
