@@ -24,5 +24,8 @@
 - james -> james dev branch
 - dom -> dom dev branch
 
+## Project Boards
+- [Beta 1.0 (prod v 0.5.0)](https://github.com/VybeCreations/Vybe/projects/1)
+
 ## Beta Spreadsheet
 - [Link to Spreadsheet](https://docs.google.com/spreadsheets/d/1cczbW3xsb12Hv2i9sy67gW2Nz-sIFW_8j_UiO98BJz4/edit#gid=0)
