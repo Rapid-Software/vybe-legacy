@@ -46,7 +46,6 @@ defmodule Funky do
       u["playbackUrl"] != nil
     end)
 
-    IO.inspect(list)
   end
 
 end
