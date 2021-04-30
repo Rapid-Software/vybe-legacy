@@ -43,7 +43,7 @@ defmodule Funky do
     end)
 
     list = Enum.filter(uf_list, fn u ->
-      u.playbackUrl != nil
+      u["playbackUrl"] != nil
     end)
 
     IO.inspect(list)
