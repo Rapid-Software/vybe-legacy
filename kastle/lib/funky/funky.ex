@@ -29,8 +29,8 @@ defmodule Funky do
       "songName" => track.name,
       "platform" => "spotify",
       "pid" => track.id,
-      "image" => List.first(track["album"]["images"])["url"],
-      "artist" => List.first(track["album"]["artists"])["name"],
+      "image" => List.first(track.album["images"])["url"],
+      "artist" => List.first(track.album["artists"])["name"],
       "playbackUrl" => track.preview_url
     }
   end
