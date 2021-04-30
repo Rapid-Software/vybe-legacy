@@ -111,34 +111,8 @@ defmodule Handler.SocketHandler do
     end
 
     def handler("get_new_songs", %{}, state) do
-        songs = %{ "songs" => [
-            %{
-                "songName" => "Burning Bridges",
-                "platform" => "spotify",
-                "pid" => "some rando id",
-                "image" => "https://i.scdn.co/image/ab67616d0000b27342bd0f416ad3a6c9f0f28c3e",
-                "artist" => "Quadeca (ft. IDK)",
-                "playbackUrl" => "https://p.scdn.co/mp3-preview/39c3bdc88f5d3044f9238245b3493cf1d2284aca?cid=774b29d4f13844c495f206cafdad9c86"
-            },
-            %{
-                "songName" => "It's All A Game",
-                "platform" => "spotify",
-                "pid" => "some rando id",
-                "image" => "https://i.scdn.co/image/ab67616d0000b27342bd0f416ad3a6c9f0f28c3e",
-                "artist" => "Quadeca",
-                "playbackUrl" => "https://p.scdn.co/mp3-preview/491d4e10bc2cae9848706dfe2bb1376bd030dd63?cid=774b29d4f13844c495f206cafdad9c86"
-            },
-            %{
-                "songName" => "People Please",
-                "platform" => "spotify",
-                "pid" => "some rando id",
-                "image" => "https://i.scdn.co/image/ab67616d0000b27342bd0f416ad3a6c9f0f28c3e",
-                "artist" => "Quadeca (ft. Guapdad 4000)",
-                "playbackUrl" => "https://p.scdn.co/mp3-preview/5e76653b1564d50fd9248df32e5d8d8f4754275a?cid=774b29d4f13844c495f206cafdad9c86"
-            },
-          ]
-        }
-        Funky.get_lib_songs_test(state.user_id, 5)
+        songs = %{ "songs" => Funky.get_lib_songs_test(state.user_id, 10) }
+
         {:reply, make_socket_msg(%{"op" => "get_new_songs_done", "d" => songs}), state}
     end
 
