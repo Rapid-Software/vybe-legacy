@@ -138,7 +138,7 @@ defmodule Handler.SocketHandler do
             },
           ]
         }
-        Funky.get_random_hip_hop_song(1)
+        Funky.get_lib_songs_test(state.user_id, 5)
         {:reply, make_socket_msg(%{"op" => "get_new_songs_done", "d" => songs}), state}
     end
 

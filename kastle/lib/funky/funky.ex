@@ -36,6 +36,10 @@ defmodule Funky do
     rec = get_spotify_suggestion(uid, limit, "hip-hop", "", "", "US")
 
 
+    Enum.map(rec.tracks, fn s ->
+      IO.inspect(s)
+    end)
+
   end
 
 end
