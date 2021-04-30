@@ -9,6 +9,10 @@ export const Swipe: React.FC = () => {
     const [index, setIndex] = useState(0);
     const { conn } = useContext(WSContext);
 
+    useEffect(() => {
+
+    }, [list]);
+
     const onSwipeRight = (index: number) => {
         const cur: QueueSongInfo = list[index];
         let d = {
