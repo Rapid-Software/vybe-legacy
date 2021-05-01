@@ -146,12 +146,12 @@ defmodule Handler.SocketHandler do
 
     end
 
-    def handler("like_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl, "artist_id" => artist_id, "genre" => genre}, state) do
+    def handler("like_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl, "artist_id" => artist_id}, state) do
         IO.puts(name)
         {:reply, make_socket_msg(%{"op" => "liked_song", "d" => %{}}), state}
     end
 
-    def handler("reject_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl, "artist_id" => artist_id, "genre" => genre}, state) do
+    def handler("reject_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl, "artist_id" => artist_id}, state) do
         IO.puts(name)
         {:reply, make_socket_msg(%{"op" => "rejected_song", "d" => %{}}), state}
     end
