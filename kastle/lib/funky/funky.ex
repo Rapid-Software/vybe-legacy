@@ -15,7 +15,7 @@ defmodule Funky do
   def get_spotify_suggestion(uid, limit, genres, artists, songs, market) do
     creds = uid |> uid_to_creds()
 
-    {:ok, r} = creds |> Spotify.Recommendation.get_recommendations(market: market, limit: limit, seed_genres: genres)
+    {:ok, r} = creds |> Spotify.Recommendation.get_recommendations(market: market, limit: limit, seed_genres: genres, seed_artists: artists)
   end # make sure token is valid
 
   def get_random_hip_hop_song(limit) do
