@@ -26,7 +26,7 @@ export interface TempSongCardProps {
 }
 
 export const QueueContext = React.createContext<{ list: QueueSongInfo[], soundObjList: any[] }>({
-    list: [ sis, elevate, bib, day ],
+    list: [ sis ],
     soundObjList: [],
 });
 

@@ -10,10 +10,8 @@ export const Swipe: React.FC = () => {
     const { conn } = useContext(WSContext);
 
     useEffect(() => {
-      if (list.length == 0) { // startup songs
-        conn?.send("get_new_songs", {});
-      }
-    }, []);
+      conn?.send("get_new_songs", {});
+    }, []); // fix pls
 
     const onSwipeRight = (index: number) => {
         const cur: QueueSongInfo = list[index];
