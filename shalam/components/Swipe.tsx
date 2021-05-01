@@ -26,7 +26,6 @@ export const Swipe: React.FC = () => {
             image: cur.image,
             playbackurl: cur.playbackUrl,
             artist_id: cur.artist_id,
-            genre: cur.genre
         }
         conn?.send("like_song", d);
     }
@@ -42,7 +41,6 @@ export const Swipe: React.FC = () => {
             image: cur.image,
             playbackurl: cur.playbackUrl,
             artist_id: cur.artist_id,
-            genre: cur.genre
         }
         conn?.send("reject_song", d);
     }
