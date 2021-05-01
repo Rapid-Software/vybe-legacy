@@ -8,7 +8,6 @@ export const bib: QueueSongInfo = {
     artist: "Pooh Shiesty (feat. Lil Durk)",
     playbackUrl: "https://p.scdn.co/mp3-preview/355965ad5f2d2911a357c40bd81c1080d0a7db7c?cid=774b29d4f13844c495f206cafdad9c86",
     artist_id: "",
-    genre: ""
 }
 
 export const sis: QueueSongInfo = {
@@ -19,7 +18,6 @@ export const sis: QueueSongInfo = {
     artist: "Quadeca",
     playbackUrl: "https://p.scdn.co/mp3-preview/c122cc9dd73fdfad951e9488481865d4e811ed31?cid=774b29d4f13844c495f206cafdad9c86",
     artist_id: "",
-    genre: ""
 }
 
 export const elevate: QueueSongInfo = {
@@ -30,7 +28,6 @@ export const elevate: QueueSongInfo = {
     artist: "347Aiden",
     playbackUrl: "https://p.scdn.co/mp3-preview/a18df55248609b3165d63e145fc75ad5c309be09?cid=774b29d4f13844c495f206cafdad9c86",
     artist_id: "",
-    genre: ""
 }
 
 export const day: QueueSongInfo = {
@@ -41,5 +38,4 @@ export const day: QueueSongInfo = {
     artist: "DC The Don",
     playbackUrl: "https://p.scdn.co/mp3-preview/0aa06cf7a67fdac0ac069891b92ebfa831ca5eba?cid=774b29d4f13844c495f206cafdad9c86",
     artist_id: "",
-    genre: ""
 }

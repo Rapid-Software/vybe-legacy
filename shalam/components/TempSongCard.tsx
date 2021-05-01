@@ -12,8 +12,7 @@ export interface QueueSongInfo {
     image: string,
     artist: string,
     playbackUrl: string,
-    artist_id: string,
-    genre: string
+    artist_id: string
 }
 
 export const clearSoundObjList = () => {
