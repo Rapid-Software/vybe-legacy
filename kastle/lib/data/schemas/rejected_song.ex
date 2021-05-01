@@ -8,9 +8,11 @@ defmodule Data.Schemas.RejectedSong do
     field :type, :string
     field :pid, :string
     field :artist, :string
+    field :artist_id, :string
     field :name, :string
     field :image, :string
     field :playbackurl, :string
+    field :genre, :string
   end
 
 end
