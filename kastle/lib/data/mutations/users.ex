@@ -42,7 +42,7 @@ defmodule Data.Mutations.Users do
         end
     end
 
-    def add_liked_song(id, sid, type, pid, artist, name, image, playbackurl) do
+    def add_liked_song(id, sid, type, pid, artist, name, image, playbackurl, artist_id) do
         {_, uid} = Snowflake.next_id()
 
         if is_nil(sid) do
@@ -59,11 +59,12 @@ defmodule Data.Mutations.Users do
             artist: artist,
             name: name,
             image: image,
-            playbackurl: playbackurl
+            playbackurl: playbackurl,
+            artist_id: artist_id
         } |> Repo.insert()
     end
 
-    def add_rejected_song(id, sid, type, pid, artist, name, image, playbackurl) do
+    def add_rejected_song(id, sid, type, pid, artist, name, image, playbackurl, artist_id) do
         {_, uid} = Snowflake.next_id()
 
         if is_nil(sid) do
@@ -80,7 +81,8 @@ defmodule Data.Mutations.Users do
             artist: artist,
             name: name,
             image: image,
-            playbackurl: playbackurl
+            playbackurl: playbackurl,
+            artist_id: artist
         } |> Repo.insert()
     end
 
