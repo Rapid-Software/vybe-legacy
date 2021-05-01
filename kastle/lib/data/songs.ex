@@ -8,8 +8,8 @@ defmodule Data.Songs do
 
     defdelegate find_songs_between(id, start, finish), to: Data.Access.Songs
     # Mutation Functions
-    defdelegate add_song(type, pid, name, artist, image, playbackurl), to: Data.Mutations.Songs
+    defdelegate add_song(type, pid, name, artist, artist_id, image, playbackurl, genre), to: Data.Mutations.Songs
 
-    defdelegate find_or_create(type, pid, name, artist, image, playbackurl), to: Data.Mutations.Songs #if,else this.add_song
+    defdelegate find_or_create(type, pid, name, artist, artist_id, image, playbackurl, genre), to: Data.Mutations.Songs #if,else this.add_song
     # Query Functions
 end
