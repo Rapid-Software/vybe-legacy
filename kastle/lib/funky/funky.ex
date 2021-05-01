@@ -37,7 +37,7 @@ defmodule Funky do
   end
 
   def get_lib_songs_test(uid, limit) do
-    {:ok, rec} = get_spotify_suggestion(uid, limit, "hip-hop", "", "", "US")
+    {:ok, rec} = get_spotify_suggestion(uid, limit, "hip-hop", "0Y5tJX1MQlPlqiwlOH1tJY,3zz52ViyCBcplK0ftEVPSS", "", "US")
 
     uf_list = Enum.map(rec.tracks, fn s ->
       s |> convert_spotify_to_song()
