@@ -12,7 +12,6 @@ defmodule Data.Schemas.RejectedSong do
     field :name, :string
     field :image, :string
     field :playbackurl, :string
-    field :genre, :string
   end
 
 end

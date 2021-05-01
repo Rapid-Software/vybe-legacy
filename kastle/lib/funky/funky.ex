@@ -31,7 +31,8 @@ defmodule Funky do
       "pid" => track.id,
       "image" => List.first(track.album["images"])["url"],
       "artist" => List.first(track.album["artists"])["name"],
-      "playbackUrl" => track.preview_url
+      "playbackUrl" => track.preview_url,
+      "artist_id" => List.first(track.album["artists"])["id"]
     }
   end
 
