@@ -149,14 +149,20 @@ defmodule Handler.SocketHandler do
     def handler("like_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl, "artist_id" => artist_id}, state) do
         IO.puts(name)
 
+        # DB Querys
         Data.Mutations.Songs.find_or_create(type, pid, name, artist, artist_id, image, playbackurl)
+        Data.Mutations.Users.add_liked_song(state.user_id, sid, type, pid, artist, name, image, playbackurl, artist_id)
+
         {:reply, make_socket_msg(%{"op" => "liked_song", "d" => %{}}), state}
     end
 
     def handler("reject_song", %{"sid" => sid, "type" => type, "pid" => pid, "artist" => artist, "name" => name, "image" => image, "playbackurl" => playbackurl, "artist_id" => artist_id}, state) do
         IO.puts(name)
 
+        # DB Querys
         Data.Mutations.Songs.find_or_create(type, pid, name, artist, artist_id, image, playbackurl)
+        Data.Mutations.Users.add_rejected_song(state.user_id, sid, type, pid, artist, name, image, playbackurl, artist_id)
+
         {:reply, make_socket_msg(%{"op" => "rejected_song", "d" => %{}}), state}
     end
 
