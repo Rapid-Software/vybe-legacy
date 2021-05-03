@@ -40,7 +40,7 @@ defmodule Funky do
     IO.inspect(song["pid"])
     IO.inspect(db.pid)
     IO.inspect(song["pid"] != db.pid)
-    song["pid"] != db.pid
+    song["pid"] != db.pid "z" "z"
   end
 
   def get_lib_songs_test(uid, limit) do
@@ -58,9 +58,9 @@ defmodule Funky do
     IO.inspect(history)
 
     list2 = Enum.filter(list, fn u ->
-      Enum.any?(history, fn h ->
+      !Enum.any?(history, fn h ->
         IO.inspect(h)
-        compare_song_db(u, h)
+        u["pid"] == h.pid
       end)
     end)
 
