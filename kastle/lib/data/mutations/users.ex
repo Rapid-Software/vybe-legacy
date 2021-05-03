@@ -82,7 +82,7 @@ defmodule Data.Mutations.Users do
             name: name,
             image: image,
             playbackurl: playbackurl,
-            artist_id: artist
+            artist_id: artist_id
         } |> Repo.insert()
     end
 

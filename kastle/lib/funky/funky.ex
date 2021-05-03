@@ -36,6 +36,10 @@ defmodule Funky do
     }
   end
 
+  def compare_song_db(song, db) do
+    song["id"] == db.pid
+  end
+
   def get_lib_songs_test(uid, limit) do
     {:ok, rec} = get_spotify_suggestion(uid, limit, "hip-hop", "0Y5tJX1MQlPlqiwlOH1tJY,3zz52ViyCBcplK0ftEVPSS", "", "US")
 
@@ -51,10 +55,10 @@ defmodule Funky do
     IO.inspect(history)
 
     list2 = Enum.filter(uf_list, fn u ->
-
+      Enum.any?(history, fn h ->
+        compare_song_db(u, h)
+      end)
     end)
-
-    list
 
   end
 
