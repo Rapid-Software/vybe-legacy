@@ -53,15 +53,11 @@ defmodule Funky do
 
     {:ok, history} = uid |> Data.Access.Users.get_all_songs()
 
-    list2 = Enum.filter(uf_list, fn u ->
+    list2 = Enum.filter(list, fn u ->
       Enum.any?(history, fn h ->
         compare_song_db(u, h)
       end)
     end)
-
-    IO.inspect(list2)
-
-    # hmm causes error
 
   end
 
