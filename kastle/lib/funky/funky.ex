@@ -55,7 +55,6 @@ defmodule Funky do
     end)
 
     {:ok, history} = uid |> Data.Access.Users.get_all_songs()
-    IO.inspect(history)
 
     list2 = Enum.filter(list, fn u ->
       case Enum.find(history, fn h -> h.pid == u["pid"] end) do
