@@ -51,7 +51,15 @@ defmodule Funky do
       u["playbackUrl"] != nil
     end)
 
+    {:ok, history} = uid |> Data.Access.Users.get_all_songs()
 
+    list2 = Enum.filter(uf_list, fn u ->
+      Enum.any?(history, fn h ->
+        compare_song_db(u, h)
+      end)
+    end)
+
+    # hmm causes error
 
   end
 
