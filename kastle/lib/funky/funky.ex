@@ -66,6 +66,8 @@ defmodule Funky do
       end
     end)
 
+    final = Enum.uniq(list2)
+
   end
 
 end
