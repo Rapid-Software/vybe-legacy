@@ -37,7 +37,7 @@ defmodule Funky do
   end
 
   def compare_song_db(song, db) do
-    IO.puts(song["id"] <> " " <> db.pid)
+    IO.inspect(song["id"])
     IO.inspect(song["id"] == db.pid)
     song["id"] == db.pid
   end
