@@ -59,6 +59,8 @@ defmodule Funky do
       end)
     end)
 
+    IO.inspect(list2)
+
     # hmm causes error
 
   end
