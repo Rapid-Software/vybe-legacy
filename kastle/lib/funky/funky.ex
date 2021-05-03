@@ -62,7 +62,7 @@ defmodule Funky do
         nil ->
           true
         _ ->
-          IO.inspect(h)
+          IO.inspect(u)
           false
       end
     end)
