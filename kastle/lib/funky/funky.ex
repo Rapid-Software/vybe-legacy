@@ -58,10 +58,13 @@ defmodule Funky do
     IO.inspect(history)
 
     list2 = Enum.filter(list, fn u ->
-      !Enum.any?(history, fn h ->
-        IO.inspect(h)
-        u["pid"] == h.pid
-      end)
+      case Enum.find(history, fn h -> h.pid == u["pid"] end) do
+        nil ->
+          true
+        _ ->
+          IO.inspect(h)
+          false
+      end
     end)
 
   end
