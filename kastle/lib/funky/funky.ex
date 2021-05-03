@@ -37,7 +37,7 @@ defmodule Funky do
   end
 
   def compare_song_db(song, db) do
-    not song["pid"] == db.pid
+    song["pid"] != db.pid
   end
 
   def get_lib_songs_test(uid, limit) do
