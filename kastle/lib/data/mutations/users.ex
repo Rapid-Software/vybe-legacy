@@ -51,7 +51,7 @@ defmodule Data.Mutations.Users do
         end
 
         {:ok, t} = %LikedSong{
-            uqid: uid,
+            uqid: to_string(uid),
             uid: id,
             sid: sid,
             type: type,
@@ -73,7 +73,7 @@ defmodule Data.Mutations.Users do
         end
 
         {:ok, t} = %RejectedSong{
-            uqid: uid,
+            uqid: to_string(uid),
             uid: id,
             sid: sid,
             type: type,
