@@ -47,6 +47,15 @@ defmodule Funky do
       u["playbackUrl"] != nil
     end)
 
+    {:ok, history} = uid |> Data.Access.Users.get_all_songs()
+    IO.inspect(history)
+
+    list2 = Enum.filter(uf_list, fn u ->
+
+    end)
+
+    list
+
   end
 
 end
