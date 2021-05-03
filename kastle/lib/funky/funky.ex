@@ -37,6 +37,7 @@ defmodule Funky do
   end
 
   def compare_song_db(song, db) do
+    IO.inspect(song["id"] == db.pid)
     song["id"] == db.pid
   end
 
@@ -52,7 +53,6 @@ defmodule Funky do
     end)
 
     {:ok, history} = uid |> Data.Access.Users.get_all_songs()
-    IO.inspect(history)
 
     list2 = Enum.filter(uf_list, fn u ->
       Enum.any?(history, fn h ->
