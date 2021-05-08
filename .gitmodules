@@ -1,0 +1,3 @@
+[submodule "VybeSite"]
+	path = VybeSite
+	url = https://github.com/VybeCreations/VybeSite.git
