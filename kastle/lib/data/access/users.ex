@@ -69,7 +69,12 @@ defmodule Data.Access.Users do
   end
 
   def get_random_liked_songs(id, limit) do
-
+    {:ok, from(l in LikedSong,
+    where:
+    l.uid == ^id,
+    limit: ^limit,
+    order_by: fragment("RANDOM()")
+    ) |> Repo.all()}
   end
 
   def get_spotify_at(id) do
