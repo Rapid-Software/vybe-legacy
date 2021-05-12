@@ -68,6 +68,10 @@ defmodule Data.Access.Users do
       ) |> Repo.all()}
   end
 
+  def get_random_liked_songs(id, limit) do
+
+  end
+
   def get_spotify_at(id) do
     {:ok, t} = id |> find_by_uid()
     {:ok, t.spotify_at}
