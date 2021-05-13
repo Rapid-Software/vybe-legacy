@@ -8,6 +8,8 @@ defmodule Data.Users do
     defdelegate get_liked_songs(id), to: Data.Access.Users
     defdelegate get_rejected_songs(id), to: Data.Access.Users
 
+    defdelegate get_random_liked_songs(id, limit), to: Data.Access.Users
+
     defdelegate get_spotify_at(id), to: Data.Access.Users
     defdelegate get_spotify_rt(id), to: Data.Access.Users
 
