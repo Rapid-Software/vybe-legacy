@@ -56,10 +56,8 @@ defmodule Funky do
   def get_lib_songs_test(uid, limit) do
     {:ok, seeds} = uid |> Data.Access.Users.get_random_liked_songs(10)
     {sngs, arts} = get_reco_strings(seeds)
-    IO.inspect(sngs)
-    IO.inspect(arts)
 
-    {:ok, rec} = get_spotify_suggestion(uid, limit, "", "0Y5tJX1MQlPlqiwlOH1tJY,3zz52ViyCBcplK0ftEVPSS", "", "US")
+    {:ok, rec} = get_spotify_suggestion(uid, limit, "", arts, sngs, "US")
 
     uf_list = Enum.map(rec.tracks, fn s ->
       s |> convert_spotify_to_song()
