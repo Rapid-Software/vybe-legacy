@@ -111,7 +111,7 @@ defmodule Handler.SocketHandler do
     end
 
     def handler("get_new_songs", %{}, state) do
-        songs = %{ "songs" => Funky.get_lib_songs_test(state.user_id, 50) }
+        songs = %{ "songs" => Funky.get_lib_songs_test(state.user_id, 15) }
 
         {:reply, make_socket_msg(%{"op" => "get_new_songs_done", "d" => songs}), state}
     end
