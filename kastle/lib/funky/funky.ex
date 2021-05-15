@@ -15,7 +15,7 @@ defmodule Funky do
   def get_spotify_suggestion(uid, limit, genres, artists, songs, market) do
     creds = uid |> uid_to_creds()
 
-    {:ok, r} = creds |> Spotify.Recommendation.get_recommendations(market: market, limit: limit, seed_genres: genres, seed_artists: artists)
+    {:ok, r} = creds |> Spotify.Recommendation.get_recommendations(market: market, limit: limit, seed_artists: artists, seed_tracks: songs)
   end # make sure token is valid
 
   def get_random_hip_hop_song(limit) do
@@ -43,8 +43,23 @@ defmodule Funky do
     song["pid"] != db.pid
   end
 
+  def get_reco_strings(songs) do
+    n = round(length(songs)/2)
+    {s, a} = songs |> Enum.split(n)
+
+    sngs = Enum.join(Enum.map(s, -> fn x -> x.pid end), ",")
+    arts = Enum.join(Enum.map(a, -> fn x -> x.pid end), ",")
+
+    { sngs, arts }
+  end
+
   def get_lib_songs_test(uid, limit) do
-    {:ok, rec} = get_spotify_suggestion(uid, limit, "hip-hop", "0Y5tJX1MQlPlqiwlOH1tJY,3zz52ViyCBcplK0ftEVPSS", "", "US")
+    {:ok, seeds} = uid |> Data.Access.Users.get_random_liked_songs(10)
+    {sngs, arts} = get_reco_strings(seeds)
+    IO.inspect(sngs)
+    IO.inspect(arts)
+
+    {:ok, rec} = get_spotify_suggestion(uid, limit, "", "0Y5tJX1MQlPlqiwlOH1tJY,3zz52ViyCBcplK0ftEVPSS", "", "US")
 
     uf_list = Enum.map(rec.tracks, fn s ->
       s |> convert_spotify_to_song()
