@@ -48,7 +48,7 @@ defmodule Funky do
     {s, a} = songs |> Enum.split(n)
 
     sngs = Enum.join(Enum.map(s, fn x -> x.pid end), ",")
-    arts = Enum.join(Enum.map(a, fn x -> x.pid end), ",")
+    arts = Enum.join(Enum.map(a, fn x -> x.artist_id end), ",")
 
     { sngs, arts }
   end
