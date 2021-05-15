@@ -61,7 +61,6 @@ defmodule Funky do
         nil ->
           true
         _ ->
-          IO.inspect(u)
           false
       end
     end)
