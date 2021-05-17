@@ -13,7 +13,7 @@ export const bib: QueueSongInfo = {
 export const sis: QueueSongInfo = {
     songName: "Sisyphus",
     platform:  "spotify",
-    pid: "some id",
+    pid: "1epxfUutr0MrnTHw89pOLV",
     image: "https://i.scdn.co/image/ab67616d0000b27342bd0f416ad3a6c9f0f28c3e",
     artist: "Quadeca",
     playbackUrl: "https://p.scdn.co/mp3-preview/c122cc9dd73fdfad951e9488481865d4e811ed31?cid=774b29d4f13844c495f206cafdad9c86",
