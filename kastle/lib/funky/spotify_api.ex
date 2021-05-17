@@ -39,7 +39,7 @@ defmodule Spotty do
         Data.Mutations.Users.update_spotify_user(u.uid, token, refresh_token)
         {:ok, token}
       _ ->
-        {:error}
+        {:error, body}
     end
   end
 
@@ -54,7 +54,7 @@ defmodule Spotty do
         Data.Mutations.Users.edit_spotify_at(u.uid, token)
         {:ok, token}
       _ ->
-        {:error}
+        {:error, body}
     end
   end
 
